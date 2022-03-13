@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tabBar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_on_surface_stroke"
+        app:theme="@style/Base.Theme.AppCompat.CompactMenu">
+
+        <LinearLayout
+            android:id="@+id/toolbarmenucontainer"
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/preferedbackground"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:layout_weight = "1"
+                android:src="@drawable/preferredimage" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/preferedbackground"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:layout_weight = "1"
+                android:src="@drawable/preferredimage" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/preferedbackground"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:layout_weight = "1"
+                android:src="@drawable/preferredimage" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>
