@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Sports Matching</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_retype_password">Retype Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_phone">Phone Number</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_email">Not a valid email address</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_retype">Retyped password must be consistent</string>
+    <string name="invalid_phone">Not a valid phone number</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_account">Login Account</string>
+    <string name="signup_prompt">Let\'s get started</string>
+    <string name="signup_little_prompt">Sign up to Explore all the valuable features</string>
+    <string name="name">Name</string>
+    <string name="register_failed">Register Failed!</string>
 </resources>
