@@ -19,4 +19,29 @@
     <string name="signup_little_prompt">Sign up to Explore all the valuable features</string>
     <string name="name">Name</string>
     <string name="register_failed">Register Failed!</string>
+<!--    yizhou's string-->
+    <string name="start_match_title">Start a match</string>
+    <string name="_1_date">Select A Day For Event * </string>
+    <string name="_2_start_time">Choose the Start Time and End Time * </string>
+    <string name="_3_end_time">3. End time</string>
+    <string name="_4_proficiency">Choose Proficiency * </string>
+    <string name="_5_game_type">5. Game type</string>
+    <string name="_6_location">6. Location</string>
+    <string name="_7_number_of_team_members">7. Number of Team Members</string>
+    <string name="_8_tags">8. Tags</string>
+    <string name="_9_upload_photos">9. Upload Photos</string>
+    <string name="_10_title">10. Title</string>
+    <string name="_11_description_optional">11. Description (optional)</string>
+    <string name="_16_00">16:00</string>
+    <string name="_18_00">18:00</string>
+    <string name="beginner">Beginner</string>
+    <string name="choose_the_start_time_end_time"><![CDATA[Choose the Start Time & End Time]]></string>
+    <string name="to">To</string>
+    <string name="choose_proficiency">Choose Proficiency *</string>
+    <string name="choose_sports_type">Choose Sports Type *</string>
+    <string name="enter_of_teammates">Enter # of Teammates *</string>
+    <string name="five">5</string>
+    <string name="continue">Continue</string>
+    <string name="continue_str">continue</string>
+    <string name="select_a_day_for_event">Select A Day For Event *</string>
 </resources>

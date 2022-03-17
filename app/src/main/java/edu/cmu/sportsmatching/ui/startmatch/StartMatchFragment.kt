@@ -14,6 +14,6 @@ class StartMatchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.startmatch_frag, container, false)
+        return inflater.inflate(R.layout.fragment_startmatch, container, false)
     }
 }
