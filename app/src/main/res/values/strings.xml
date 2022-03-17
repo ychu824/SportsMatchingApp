@@ -20,7 +20,7 @@
     <string name="name">Name</string>
     <string name="register_failed">Register Failed!</string>
 <!--    yizhou's string-->
-    <string name="start_match_title">Start a match</string>
+    <string name="start_match_title">Start a match!</string>
     <string name="_1_date">Select A Day For Event * </string>
     <string name="_2_start_time">Choose the Start Time and End Time * </string>
     <string name="_3_end_time">3. End time</string>
@@ -35,7 +35,7 @@
     <string name="_16_00">16:00</string>
     <string name="_18_00">18:00</string>
     <string name="beginner">Beginner</string>
-    <string name="choose_the_start_time_end_time"><![CDATA[Choose the Start Time & End Time]]></string>
+    <string name="choose_the_start_time_end_time"><![CDATA[Choose the Start Time & End Time*]]></string>
     <string name="to">To</string>
     <string name="choose_proficiency">Choose Proficiency *</string>
     <string name="choose_sports_type">Choose Sports Type *</string>
