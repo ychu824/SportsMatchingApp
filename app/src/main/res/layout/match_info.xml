@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FIXME: Replace test strings with real data -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_background"
+    android:layout_marginHorizontal="30dp"
+    android:layout_marginVertical="@dimen/common_vertical_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/user_round_avatar_size"
+            android:layout_height="@dimen/user_round_avatar_size"
+            app:cardCornerRadius="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="@dimen/user_round_avatar_size"
+                android:layout_height="@dimen/user_round_avatar_size"
+                android:src="@drawable/test_ava"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/test_user_name"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/common_vertical_margin"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/match_title"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/big_title"
+            android:text="@string/test_match_title"/>
+
+        <androidx.cardview.widget.CardView
+            app:cardPreventCornerOverlap="false"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/match_post_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:src="@drawable/basketball_on_court" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- TODO: Add prefix in code -->
+        <TextView
+            android:id="@+id/match_location"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/test_match_location" />
+
+        <TextView
+            android:id="@+id/match_sport"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/match_sport" />
+
+        <TextView
+            android:id="@+id/match_team"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/test_match_team" />
+
+        <TextView
+            android:id="@+id/match_time"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/test_match_time" />
+
+    </LinearLayout>
+
+</LinearLayout>

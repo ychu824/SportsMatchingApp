@@ -20,4 +20,17 @@
             #000000
         </item>
     </style>
+
+    <!-- styles.xml -->
+    <style name="medium_text">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:textColor">
+            #363434
+        </item>
+
+    </style>
 </resources>

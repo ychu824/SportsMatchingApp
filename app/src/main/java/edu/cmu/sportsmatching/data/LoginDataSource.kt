@@ -9,17 +9,12 @@ import java.lang.Exception
  */
 class LoginDataSource {
 
-    companion object {
-        private const val fakeUserName = "yhu3@andrew.cmu.edu"
-        private const val fakePassword = "123456"
-    }
-
     fun login(username: String, password: String): Result<LoggedInUser> {
         return try {
             // Handle loggedInUser authentication
-            if (username != fakeUserName || password != fakePassword) {
-                throw Exception("Invalid username or password")
-            }
+//            if (username != fakeUserName || password != fakePassword) {
+//                throw Exception("Invalid username or password")
+//            }
 
             val fakeUser = LoggedInUser(
                 java.util.UUID.randomUUID().toString(),
