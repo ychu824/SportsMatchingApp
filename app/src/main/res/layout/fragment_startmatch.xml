@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="@string/start_match_title"
         android:textAppearance="@style/big_title"

@@ -41,7 +41,9 @@
     <string name="choose_sports_type">Choose Sports Type *</string>
     <string name="enter_of_teammates">Enter # of Teammates *</string>
     <string name="five">5</string>
-    <string name="continue">Continue</string>
     <string name="continue_str">continue</string>
     <string name="select_a_day_for_event">Select A Day For Event *</string>
+    <string name="back">Back</string>
+    <string name="post">post</string>
+    <string name="title_hint">Title</string>
 </resources>
