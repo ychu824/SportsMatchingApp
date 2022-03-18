@@ -19,11 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
-        <Button
+        <ImageButton
             android:id="@+id/post_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/back" />
+            android:layout_width="53dp"
+            android:layout_height="52dp"
+            android:text="@string/back"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_left_arrowhead_variant_svgrepo_com"/>
 
         <TextView
             android:id="@+id/post_title"
@@ -46,7 +50,8 @@
             android:layout_height="wrap_content"
             android:text="@string/post"
             tools:layout_editor_absoluteX="291dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_editor_absoluteY="0dp"
+            android:backgroundTint="#67BC5F"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -67,7 +72,7 @@
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/group" />
+            android:src="@drawable/ic_tag" />
         <ImageButton
             android:id="@+id/post_addPerson"
             android:layout_width="53dp"
@@ -75,7 +80,7 @@
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/group"
+            android:src="@drawable/ic_invite_friends"
             app:layout_constraintStart_toEndOf="@id/post_tag"/>
         <ImageButton
             android:id="@+id/post_smile"
@@ -84,7 +89,7 @@
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/group"
+            android:src="@drawable/ic_smile"
             app:layout_constraintStart_toEndOf="@id/post_addPerson"/>
         <ImageButton
             android:id="@+id/post_location"
@@ -93,7 +98,7 @@
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/group"
+            android:src="@drawable/ic_location"
             app:layout_constraintStart_toEndOf="@id/post_smile"/>
 
 
