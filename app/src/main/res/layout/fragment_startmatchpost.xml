@@ -101,6 +101,7 @@
 
 
     <EditText
+        android:id="@+id/post_titleinput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
@@ -110,6 +111,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/post_titlelayout"
         tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:id="@+id/post_multilineinput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:gravity="top|left"
+        android:hint="@string/what_s_on_your_mind"
+        android:lines="10"
+        android:maxLines="15"
+        android:minLines="1"
+        app:layout_constraintTop_toBottomOf="@id/post_titleinput"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-2dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
