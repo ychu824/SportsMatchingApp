@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/match_location"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textAppearance="@style/small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/test_match_location" />
@@ -86,7 +86,7 @@
         <TextView
             android:id="@+id/match_sport"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textAppearance="@style/small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/match_sport" />
@@ -94,7 +94,7 @@
         <TextView
             android:id="@+id/match_team"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textAppearance="@style/small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/test_match_team" />
@@ -102,7 +102,7 @@
         <TextView
             android:id="@+id/match_time"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textAppearance="@style/small_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/test_match_time" />

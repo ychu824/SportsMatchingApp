@@ -28,4 +28,5 @@
     <string name="incoming_match">Incoming</string>
     <string name="pending_match">Pending</string>
     <string name="next_match_prompt">Your next event will be in</string>
+    <string name="next_match_count_down">5:00 mins</string>
 </resources>

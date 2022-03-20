@@ -41,6 +41,18 @@
             android:textAppearance="@style/medium_text"
             android:text="@string/next_match_prompt"/>
 
+<!--        TODO: Show this layout dynamically-->
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/next_match_info" />
+
+<!--        <View-->
+
+<!--            android:id="@+id/next_match_container"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+
         <ToggleButton
             android:id="@+id/filter_match_button"
             android:layout_gravity="center"
