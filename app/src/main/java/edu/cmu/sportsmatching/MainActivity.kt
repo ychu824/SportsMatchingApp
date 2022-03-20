@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import edu.cmu.sportsmatching.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,14 +14,16 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
     }
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var mBottomNavigation: BottomNavigationView
     lateinit var mFragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        mBottomNavigation = findViewById(R.id.navigation)
+        mBottomNavigation = binding.navigation
         mFragmentManager = supportFragmentManager
 
         mBottomNavigation.setOnNavigationItemSelectedListener {
@@ -50,6 +53,5 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
 
 }

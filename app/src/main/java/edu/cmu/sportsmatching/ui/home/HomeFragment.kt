@@ -4,16 +4,50 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
-import edu.cmu.sportsmatching.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import edu.cmu.sportsmatching.data.mock.FakeMatches
+import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+
+    companion object {
+        private const val TAG = "HomeFragment"
+    }
+
+    private lateinit var mMatchInfoRecyclerView: RecyclerView
+    private lateinit var mFilterMatchButton: ToggleButton
+    private lateinit var binding: FragmentHomeBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        mMatchInfoRecyclerView = binding.matchInfoRecyclerView
+        mFilterMatchButton = binding.filterMatchButton
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.home_frag, container, false)
+    ): View {
+        val layoutManager = LinearLayoutManager(activity)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        // FIXME: Replace some mock data with real data here
+        val matchInfoAdapter = MatchInfoAdapter(FakeMatches.matches)
+        mMatchInfoRecyclerView.layoutManager = layoutManager
+        mMatchInfoRecyclerView.adapter = matchInfoAdapter
+        mFilterMatchButton.setOnCheckedChangeListener { _, isChecked ->
+            // TODO: Filter matches
+            if (isChecked) {
+                Toast.makeText(activity, "Checked (incoming)", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(activity, "Unchecked (pending)", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return binding.root
     }
 }

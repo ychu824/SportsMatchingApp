@@ -1,3 +1,8 @@
 package edu.cmu.sportsmatching.data.model
 
-data class User (val email: String?)
+data class User (
+    val name: String,
+    val email: String,
+    val password: String? = null,
+    val phone: String? = null,
+)
