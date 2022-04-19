@@ -33,4 +33,11 @@
         </item>
 
     </style>
+
+    <style name="Button.Green" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">
+            @color/accent_color
+        </item>
+    </style>
+
 </resources>
