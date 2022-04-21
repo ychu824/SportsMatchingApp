@@ -34,10 +34,15 @@ class MatchInfoAdapter(
         var matchSport: TextView = itemView.findViewById(R.id.match_sport)
         var matchTeam: TextView = itemView.findViewById(R.id.match_team)
         var matchTime: TextView = itemView.findViewById(R.id.match_time)
+        var acceptBtn: Button = itemView.findViewById(R.id.accept)
         var closeBtn: Button = itemView.findViewById(R.id.dismiss)
         init {
             itemView.setOnClickListener {
                 this.onMatchListener.onMatchClick(this.adapterPosition)
+            }
+            this.acceptBtn.setOnClickListener {
+                removeAt(this.adapterPosition)
+                // TODO: add current match to archive
             }
             this.closeBtn.setOnClickListener {
                 removeAt(this.adapterPosition)
