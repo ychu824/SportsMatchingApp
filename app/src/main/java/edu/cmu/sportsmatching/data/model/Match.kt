@@ -11,4 +11,6 @@ data class Match(
     val startTime: String? = null,
     val endTime: String? = null,
     val date: String? = null,
+    val mainText: String = "",
+    val participants: List<User>
 )

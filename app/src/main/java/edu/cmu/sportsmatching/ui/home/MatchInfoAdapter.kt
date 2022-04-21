@@ -14,7 +14,7 @@ import edu.cmu.sportsmatching.data.model.Match
 import kotlin.math.log
 
 class MatchInfoAdapter(
-    private val matches: ArrayList<Match>,
+    val matches: ArrayList<Match>,
     private val onMatchListener: OnMatchListener
 ) :
     RecyclerView.Adapter<MatchInfoAdapter.MatchViewHolder>() {

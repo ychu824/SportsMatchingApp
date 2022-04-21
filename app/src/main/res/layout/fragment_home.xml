@@ -53,15 +53,6 @@
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"/>-->
 
-        <ToggleButton
-            android:id="@+id/filter_match_button"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_marginVertical="@dimen/common_vertical_margin"
-            android:textOn="@string/incoming_match"
-            android:textOff="@string/pending_match"
-            android:layout_height="wrap_content" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/match_info_recycler_view"
             android:layout_width="wrap_content"
