@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/drawable/loadingbox.xml" value="0.1455" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/current_team_info.xml" value="0.21302083333333333" />
-        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_detail.xml" value="0.264" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_detail.xml" value="0.23426212590299278" />
         <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/location_info.xml" value="0.21302083333333333" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/match_info.xml" value="0.536" />
         <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/next_match_info.xml" value="0.25" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/team_member.xml" value="0.4" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/add_circle.xml" value="0.1885" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/border_background.xml" value="0.187" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/chat_room.xml" value="0.1885" />

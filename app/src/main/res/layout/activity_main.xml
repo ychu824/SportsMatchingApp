@@ -11,6 +11,7 @@
         android:id="@+id/main_fragment_container"
         android:name="edu.cmu.sportsmatching.ui.home.HomeFragment"
         android:layout_width="wrap_content"
+        android:layout_marginBottom="60dp"
         android:layout_height="wrap_content" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

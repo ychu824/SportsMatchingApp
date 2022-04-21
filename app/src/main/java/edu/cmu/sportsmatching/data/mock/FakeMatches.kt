@@ -1,6 +1,7 @@
 package edu.cmu.sportsmatching.data.mock
 
 import edu.cmu.sportsmatching.data.model.Match
+import edu.cmu.sportsmatching.data.model.User
 
 object FakeMatches {
     private val fakeMatch = Match(starter = "Yizhou Liu", title = "Ping Pong double people GAME AT 4 PM PITTSBURGH!!",
@@ -17,8 +18,12 @@ object FakeMatches {
         }
     }
 
-//    val events: List<Event> = listOf(
-//        Event(location = "Pittsburgh, PA, 15219", sport_type = "Basketball",start_time = "16:00", end_time = "18:00",
-//            ocur_spots = 7, all_spots = 10, date = "Today")
-//    )
+    val fakeUser = User(name = "Yizhou Liu", password = "", phone = "", email = "")
+    val users: ArrayList<User> = ArrayList()
+    init {
+        for (i in 0 until 5) {
+            this.users.add(fakeUser)
+        }
+
+    }
 }
