@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import edu.cmu.sportsmatching.data.mock.FakeMatches
-import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
+import edu.cmu.sportsmatching.databinding.FragmentDetailBinding
 
 class DetailPageFragment : Fragment() {
 
@@ -18,15 +14,11 @@ class DetailPageFragment : Fragment() {
         private const val TAG = "DetailPageFragment"
     }
 
-    private lateinit var mMatchInfoRecyclerView: RecyclerView
-    private lateinit var mFilterMatchButton: ToggleButton
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-        mMatchInfoRecyclerView = binding.matchInfoRecyclerView
-        mFilterMatchButton = binding.filterMatchButton
+        binding = FragmentDetailBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -36,18 +28,6 @@ class DetailPageFragment : Fragment() {
     ): View {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        // FIXME: Replace some mock data with real data here
-        val matchInfoAdapter = EventInfoAdapter(FakeMatches.events)
-        mMatchInfoRecyclerView.layoutManager = layoutManager
-        mMatchInfoRecyclerView.adapter = matchInfoAdapter
-        mFilterMatchButton.setOnCheckedChangeListener { _, isChecked ->
-            // TODO: Filter matches
-            if (isChecked) {
-                Toast.makeText(activity, "Checked (incoming)", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(activity, "Unchecked (pending)", Toast.LENGTH_SHORT).show()
-            }
-        }
         return binding.root
     }
 }
