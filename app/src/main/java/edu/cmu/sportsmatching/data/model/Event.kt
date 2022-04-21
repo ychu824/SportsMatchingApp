@@ -1,8 +1,5 @@
 package edu.cmu.sportsmatching.data.model
 
-/**
- * Data class that captures user information for logged in users retrieved from LoginRepository
- */
 data class Event(
     val location: String,
     val start_time: String,

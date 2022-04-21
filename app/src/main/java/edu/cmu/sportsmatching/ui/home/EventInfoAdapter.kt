@@ -25,8 +25,6 @@ class EventInfoAdapter(private val events: List<Event>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_detail, parent, false)
-
-        // TODO: Set onClickListener on this view to see details
         return ViewHolder(view)
     }
 

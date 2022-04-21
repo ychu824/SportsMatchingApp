@@ -10,9 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.data.mock.FakeMatches
+import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), MatchInfoAdapter.OnMatchListener {
 
     companion object {
         private const val TAG = "HomeFragment"
@@ -37,7 +38,8 @@ class HomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         // FIXME: Replace some mock data with real data here
-        val matchInfoAdapter = MatchInfoAdapter(FakeMatches.matches)
+        val matchInfoAdapter = MatchInfoAdapter(FakeMatches.matches, this)
+        layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = matchInfoAdapter
         mFilterMatchButton.setOnCheckedChangeListener { _, isChecked ->
@@ -49,5 +51,9 @@ class HomeFragment : Fragment() {
             }
         }
         return binding.root
+    }
+
+    override fun onMatchClick(position: Int) {
+        Toast.makeText(activity, "Clicked", Toast.LENGTH_SHORT).show()
     }
 }
