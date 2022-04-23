@@ -44,6 +44,8 @@ class DetailPageFragment(private val match: Match) : Fragment() {
         val adapter = TeamMemberAdaptor(this.requireContext(), R.layout.team_member, users)
         binding.list.adapter = adapter
 
+
+
     }
 
     override fun onCreateView(
@@ -53,6 +55,12 @@ class DetailPageFragment(private val match: Match) : Fragment() {
     ): View {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
+        binding.buttonBack.setOnClickListener {
+            requireFragmentManager().popBackStack()
+        }
         return binding.root
     }
+
+
+
 }

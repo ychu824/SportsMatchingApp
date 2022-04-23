@@ -15,6 +15,13 @@
         android:orientation="vertical"
         android:background="@drawable/border_background">
 
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/close"
+            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
@@ -28,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginVertical="@dimen/common_vertical_margin"
-            android:text="3 remaining"
+            android:text="@string/_3_remaining"
             android:textAppearance="@style/medium_text"
             android:textStyle="italic" />
 
