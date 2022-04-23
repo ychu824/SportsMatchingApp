@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
@@ -14,6 +15,8 @@ import edu.cmu.sportsmatching.databinding.FragmentArchiveBinding
 import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
 import edu.cmu.sportsmatching.ui.archive.DetailInfoAdapter
 import edu.cmu.sportsmatching.ui.home.DetailPageFragment
+import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
+import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchViewModel
 
 class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
 
@@ -23,11 +26,21 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
 
     private lateinit var mMatchInfoRecyclerView: RecyclerView
     private lateinit var mMatchAdapter: DetailInfoAdapter
+    private lateinit var mArchiveMatchViewModel: ArchiveMatchViewModel
     private lateinit var binding: FragmentArchiveBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentArchiveBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.archiveRecyclerView
+        mArchiveMatchViewModel = ViewModelProvider(this, ArchiveMatchFactory())
+            .get(ArchiveMatchViewModel::class.java)
+
+        mArchiveMatchViewModel.archiveMatches.observe(this@ArchiveFragment) {
+            val loginResult = it ?: return@observe
+
+//            fixme: update recyclerview with data
+            mMatchInfoRecyclerView.postInvalidate()
+        }
     }
 
     override fun onCreateView(
@@ -39,7 +52,8 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         // FIXME: Replace some mock data with real data here
-        this.mMatchAdapter = DetailInfoAdapter(FakeMatches.matches, this)
+        this.mMatchAdapter = DetailInfoAdapter(
+            mArchiveMatchViewModel.archiveMatches.value!!, this)
         layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = this.mMatchAdapter
