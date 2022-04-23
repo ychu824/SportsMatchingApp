@@ -5,12 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.cmu.sportsmatching.R
+import edu.cmu.sportsmatching.data.mock.FakeMatches.users
 import edu.cmu.sportsmatching.data.model.Match
+import edu.cmu.sportsmatching.data.model.User
 import edu.cmu.sportsmatching.databinding.FragmentDetailBinding
 
-class DetailPageFragment(private val event: Match) : Fragment() {
+class DetailPageFragment(private val match: Match) : Fragment() {
 
     companion object {
         private const val TAG = "DetailPageFragment"
@@ -18,17 +23,29 @@ class DetailPageFragment(private val event: Match) : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
 
+    private lateinit var listView: ListView
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentDetailBinding.inflate(layoutInflater)
-        binding.detailTitle.text = event.title
-        binding.remaining.text = "${event.totalTeam - event.currentTeam} remaining"
-        binding.detailMainText.text = event.mainText
-        binding.detailInfoLocation.text = "Location: ${event.location}"
-        binding.detailInfoTime.text = "Time: ${event.startTime} - ${event.endTime} ${event.date}"
-        binding.detailInfoSportType.text = "Sport: ${event.sport}"
-        binding.detailInfoAvailability.text = "Team ${event.currentTeam}/${event.totalTeam}"
+        binding.detailTitle.text = match.title
+        binding.remaining.text = "${match.totalTeam - match.currentTeam} remaining"
+        binding.detailMainText.text = match.mainText
+        binding.detailInfoLocation.text = "Location: ${match.location}"
+        binding.detailInfoTime.text = "Time: ${match.startTime} - ${match.endTime} ${match.date}"
+        binding.detailInfoSportType.text = "Sport: ${match.sport}"
+        binding.detailInfoAvailability.text = "Team ${match.currentTeam}/${match.totalTeam}"
+
+//
+//        val adapter = TeamMemberAdaptor(this.requireContext(), R.layout.team_member, users)
+//        listView = view?.findViewById<View>(R.id.list)
+//        listView.adapter = adapter
+        val adapter = TeamMemberAdaptor(this.requireContext(), R.layout.team_member, users)
+        binding.list.adapter = adapter
+
+
+
     }
 
     override fun onCreateView(
@@ -38,6 +55,12 @@ class DetailPageFragment(private val event: Match) : Fragment() {
     ): View {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
+        binding.buttonBack.setOnClickListener {
+            requireFragmentManager().popBackStack()
+        }
         return binding.root
     }
+
+
+
 }

@@ -7,4 +7,6 @@
     <dimen name="user_round_avatar_size">50dp</dimen>
     <dimen name="loadbar_height">20dp</dimen>
     <dimen name="loadhar_width">50dp</dimen>
+    <dimen name="cur_team_width">30dp</dimen>
+    <dimen name="cur_team_height">30dp</dimen>
 </resources>
