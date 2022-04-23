@@ -12,7 +12,7 @@ object FakeMatches {
     val matches: ArrayList<Match> = ArrayList()
 
     init {
-        for (i in 0 until 5) {
+        for (i in 0 until 3) {
             this.matches.add(fakeMatch)
         }
     }
