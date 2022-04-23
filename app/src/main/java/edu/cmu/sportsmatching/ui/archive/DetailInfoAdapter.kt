@@ -1,4 +1,4 @@
-package edu.cmu.sportsmatching.ui.home
+package edu.cmu.sportsmatching.ui.archive
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -13,13 +13,13 @@ import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.Match
 import kotlin.math.log
 
-class MatchInfoAdapter(
+class DetailInfoAdapter(
     val matches: ArrayList<Match>,
     private val onMatchListener: OnMatchListener
 ) :
-    RecyclerView.Adapter<MatchInfoAdapter.MatchViewHolder>() {
+    RecyclerView.Adapter<DetailInfoAdapter.MatchViewHolder>() {
 
-    interface OnMatchListener {
+        interface OnMatchListener {
         fun onMatchClick(position: Int)
     }
 
@@ -34,25 +34,16 @@ class MatchInfoAdapter(
         var matchSport: TextView = itemView.findViewById(R.id.match_sport)
         var matchTeam: TextView = itemView.findViewById(R.id.match_team)
         var matchTime: TextView = itemView.findViewById(R.id.match_time)
-        var acceptBtn: Button = itemView.findViewById(R.id.accept)
-        var closeBtn: Button = itemView.findViewById(R.id.dismiss)
         init {
             itemView.setOnClickListener {
                 this.onMatchListener.onMatchClick(this.adapterPosition)
-            }
-            this.acceptBtn.setOnClickListener {
-                removeAt(this.adapterPosition)
-                // TODO: add current match to archive
-            }
-            this.closeBtn.setOnClickListener {
-                removeAt(this.adapterPosition)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.match_info, parent, false)
+            .inflate(R.layout.brief_match_info, parent, false)
         return MatchViewHolder(view, this.onMatchListener)
     }
 
@@ -72,11 +63,5 @@ class MatchInfoAdapter(
 
     override fun getItemCount(): Int {
         return matches.size
-    }
-
-    fun removeAt(position: Int) {
-        this.matches.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, this.matches.size)
     }
 }
