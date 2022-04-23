@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="@dimen/common_vertical_margin"
+        android:background="@drawable/border_background">
+
+            <TextView
+                android:id="@+id/next_match_location"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/small_title"
+                android:text="@string/test_match_location" />
+
+            <TextView
+                android:id="@+id/next_match_sport"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/small_title"
+                android:text="@string/match_sport" />
+
+            <TextView
+                android:id="@+id/next_match_time"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/small_title"
+                android:text="@string/test_match_time" />
+
+</LinearLayout>

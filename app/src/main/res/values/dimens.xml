@@ -3,4 +3,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="common_vertical_margin">10dp</dimen>
+    <dimen name="user_round_avatar_size">50dp</dimen>
+    <dimen name="loadbar_height">20dp</dimen>
+    <dimen name="loadhar_width">50dp</dimen>
+    <dimen name="cur_team_width">30dp</dimen>
+    <dimen name="cur_team_height">30dp</dimen>
 </resources>

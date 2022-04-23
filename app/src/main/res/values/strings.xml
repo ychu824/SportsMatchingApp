@@ -63,4 +63,25 @@
         <item>Chess</item>
         <item>Soccer</item>
     </string-array>
+    <string name="test_user_name">Yizhou Liu</string>
+    <string name="test_match_title">Ping Pong double people GAME AT 4 PM PITTSBURGH!!</string>
+    <string name="test_match_location">Location: Pittsburgh, PA, 15217</string>
+    <string name="match_sport">Sport: Table Tennis</string>
+    <string name="test_match_team">Team: 4/4</string>
+    <string name="test_match_time">Time: 16:00 - 18:00 March 30th</string>
+    <string name="incoming_match">Incoming</string>
+    <string name="pending_match">Pending</string>
+    <string name="next_match_prompt">Your next event will be in</string>
+    <string name="next_match_count_down">5:00 mins</string>
+    <string name="detail_page_title">CALL OUT FOR BASKETBALL GAME 4:PM AT PITTSBURGH</string>
+    <string name="detail_page_main_text">Looking for people to join our basketball game at basketball field in CMU campus! From 4 pm to 6 pm or later! Welcome anyone who is above 18 and interested! No requirement for skills and levels!</string>
+    <string name="detail_page_info_location">Location: Pittsburgh, PA, 15217</string>
+    <string name="detail_page_info_time">Time: 16:00–18:00 Today</string>
+    <string name="detail_page_info_sport_type">Sport: Basketball</string>
+    <string name="detail_page_info_availability">Team: 7/10</string>
+    <string name="current_team">Current Team</string>
+    <string name="team_chat">Team Chat</string>
+    <string name="leave_the_team">Leave The Team</string>
+    <string name="cancel_the_event">cancel event</string>
+    <string name="_3_remaining">3 remaining</string>
 </resources>
