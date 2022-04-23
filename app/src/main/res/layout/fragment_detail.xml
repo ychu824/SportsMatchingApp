@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginVertical="@dimen/common_vertical_margin">
 
     <LinearLayout
@@ -14,8 +14,6 @@
         android:orientation="vertical"
         android:background="@drawable/border_background">
 
-<!--        进度条-->
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
@@ -24,7 +22,7 @@
             android:background="@drawable/loadingbox" />
 
         <TextView
-            android:id="@+id/next_match_prompt"
+            android:id="@+id/remaining"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -109,10 +107,10 @@
             android:textAppearance="@style/medium_text"
             />
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/current_team_info" />
+<!--        <include-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            layout="@layout/current_team_info" />-->
 
         <Button
             android:layout_marginTop="10dp"

@@ -1,20 +1,32 @@
 package edu.cmu.sportsmatching.ui.home
 
 import android.annotation.SuppressLint
-import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.Match
+import kotlin.math.log
 
-class MatchInfoAdapter(private val matches: List<Match>) :
-    RecyclerView.Adapter<MatchInfoAdapter.ViewHolder>() {
+class MatchInfoAdapter(
+    val matches: ArrayList<Match>,
+    private val onMatchListener: OnMatchListener
+) :
+    RecyclerView.Adapter<MatchInfoAdapter.MatchViewHolder>() {
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface OnMatchListener {
+        fun onMatchClick(position: Int)
+    }
+
+    inner class MatchViewHolder(
+        itemView: View,
+        private val onMatchListener: OnMatchListener
+    ) : RecyclerView.ViewHolder(itemView) {
         var userName: TextView = itemView.findViewById(R.id.user_name)
         var matchTitle: TextView = itemView.findViewById(R.id.match_title)
         var matchPostImage: ImageView = itemView.findViewById(R.id.match_post_image)
@@ -22,21 +34,34 @@ class MatchInfoAdapter(private val matches: List<Match>) :
         var matchSport: TextView = itemView.findViewById(R.id.match_sport)
         var matchTeam: TextView = itemView.findViewById(R.id.match_team)
         var matchTime: TextView = itemView.findViewById(R.id.match_time)
+        var acceptBtn: Button = itemView.findViewById(R.id.accept)
+        var closeBtn: Button = itemView.findViewById(R.id.dismiss)
+        init {
+            itemView.setOnClickListener {
+                this.onMatchListener.onMatchClick(this.adapterPosition)
+            }
+            this.acceptBtn.setOnClickListener {
+                removeAt(this.adapterPosition)
+                // TODO: add current match to archive
+            }
+            this.closeBtn.setOnClickListener {
+                removeAt(this.adapterPosition)
+            }
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.match_info, parent, false)
-
-        // TODO: Set onClickListener on this view to see details
-        return ViewHolder(view)
+        return MatchViewHolder(view, this.onMatchListener)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
         val match = matches[position]
         holder.userName.text = match.starter
         holder.matchTitle.text = match.title
+        // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
         holder.matchPostImage.setImageResource(R.drawable.basketball_on_court)
         holder.matchLocation.text = "Location: " + match.location
@@ -47,5 +72,11 @@ class MatchInfoAdapter(private val matches: List<Match>) :
 
     override fun getItemCount(): Int {
         return matches.size
+    }
+
+    fun removeAt(position: Int) {
+        this.matches.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, this.matches.size)
     }
 }
