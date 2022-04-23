@@ -149,7 +149,7 @@
 
     <Spinner
         android:id="@+id/startmatch_proficiency_dropdown"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -157,6 +157,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/startmatch_proficiency" />
 
+    
+    <View
+        android:id="@+id/divider_line_1"
+        style="@style/Divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startmatch_proficiency_dropdown"
+    />
     <TextView
         android:id="@+id/startmatch_sportsType"
         android:layout_width="0dp"
@@ -180,6 +187,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/startmatch_proficiency_dropdown" />
+
+    <View
+        android:id="@+id/divider_line_2"
+        style="@style/Divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startmatch_sportsType_dropdown"
+        />
 
     <TextView
         android:id="@+id/startmatch_numTeamMembers"

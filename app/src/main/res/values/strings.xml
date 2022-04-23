@@ -47,4 +47,20 @@
     <string name="post">post</string>
     <string name="title_hint">Title</string>
     <string name="what_s_on_your_mind">What\'s on your mind?</string>
+    
+    <string-array name="proficiency_dropdown">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Pro</item>
+        <item>Expert</item>
+    </string-array>
+    
+    <string-array name="sportsType_dropdown">
+        <item>Table Tennis</item>
+        <item>Basketball</item>
+        <item>Badminton</item>
+        <item>Tennis</item>
+        <item>Chess</item>
+        <item>Soccer</item>
+    </string-array>
 </resources>
