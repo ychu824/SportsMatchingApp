@@ -7,6 +7,9 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import edu.cmu.sportsmatching.databinding.ActivityMainBinding
+import edu.cmu.sportsmatching.ui.archive.ArchiveFragment
+import edu.cmu.sportsmatching.ui.home.DetailPageFragment
+import edu.cmu.sportsmatching.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +34,13 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> {
                     Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                    val fragmentManager: FragmentManager? = this?.supportFragmentManager
+                    if (fragmentManager != null) {
+                        val transaction = fragmentManager.beginTransaction()
+                        transaction.setReorderingAllowed(true)
+                        transaction.replace(R.id.main_fragment_container, HomeFragment())
+                        transaction.commit()
+                    }
                 }
 
                 R.id.friends -> {
@@ -42,11 +52,18 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.chat_room -> {
-                    Toast.makeText(this, "Chat room", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show()
+                    val fragmentManager: FragmentManager? = this?.supportFragmentManager
+                    if (fragmentManager != null) {
+                        val transaction = fragmentManager.beginTransaction()
+                        transaction.setReorderingAllowed(true)
+                        transaction.replace(R.id.main_fragment_container, ArchiveFragment())
+                        transaction.commit()
+                    }
                 }
 
                 R.id.user_profile -> {
-                    Toast.makeText(this, "Chat room", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
                 }
 
             }
