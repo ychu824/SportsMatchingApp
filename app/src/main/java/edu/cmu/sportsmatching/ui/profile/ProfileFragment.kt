@@ -2,6 +2,7 @@ package edu.cmu.sportsmatching.ui.profile
 
 import android.R
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ProgressBar
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.cmu.sportsmatching.LoginActivity
 import edu.cmu.sportsmatching.data.mock.FakeProfile
 import edu.cmu.sportsmatching.databinding.FragmentProfileBinding
 
@@ -58,6 +60,10 @@ class ProfileFragment : Fragment() {
         simpleSeekBar2.max = workourTime.toInt()
         simpleSeekBar2.progress = timeList[2]
         binding.StatusMessage.text = status_message
+        binding.button2.setOnClickListener {
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateView(
