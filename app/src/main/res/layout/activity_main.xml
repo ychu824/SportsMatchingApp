@@ -21,13 +21,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
-            android:background="#283593"
+            android:background="@color/accent_color"
             app:itemTextColor="#ffff"
             app:menu="@menu/bottom_menu"
             app:layout_scrollFlags="scroll"/>

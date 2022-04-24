@@ -49,5 +49,4 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/common_vertical_margin"
         android:orientation="vertical" />
-
 </LinearLayout>

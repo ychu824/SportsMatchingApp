@@ -23,11 +23,11 @@
             android:id="@+id/post_back"
             android:layout_width="53dp"
             android:layout_height="52dp"
-            android:text="@string/back"
             android:layout_centerInParent="true"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_left_arrowhead_variant_svgrepo_com"/>
+            android:src="@drawable/ic_left_arrowhead_variant_svgrepo_com"
+            android:text="@string/back" />
 
         <TextView
             android:id="@+id/post_title"
@@ -48,10 +48,10 @@
             android:id="@+id/post_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#67BC5F"
             android:text="@string/post"
             tools:layout_editor_absoluteX="291dp"
-            tools:layout_editor_absoluteY="0dp"
-            android:backgroundTint="#67BC5F"/>
+            tools:layout_editor_absoluteY="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -73,6 +73,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_tag" />
+
         <ImageButton
             android:id="@+id/post_addPerson"
             android:layout_width="53dp"
@@ -81,7 +82,8 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_invite_friends"
-            app:layout_constraintStart_toEndOf="@id/post_tag"/>
+            app:layout_constraintStart_toEndOf="@id/post_tag" />
+
         <ImageButton
             android:id="@+id/post_smile"
             android:layout_width="53dp"
@@ -90,17 +92,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_smile"
-            app:layout_constraintStart_toEndOf="@id/post_addPerson"/>
-        <ImageButton
-            android:id="@+id/post_location"
-            android:layout_width="53dp"
-            android:layout_height="52dp"
-            android:layout_centerInParent="true"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_location"
-            app:layout_constraintStart_toEndOf="@id/post_smile"/>
-
+            app:layout_constraintStart_toEndOf="@id/post_addPerson" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,12 +101,11 @@
         android:id="@+id/post_titleinput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:autofillHints="@string/title_hint"
         android:hint="@string/title_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/post_titlelayout"
+        app:layout_constraintTop_toBottomOf="@id/post_imagelayout"
         tools:ignore="MissingConstraints" />
 
 
@@ -132,6 +123,38 @@
         app:layout_constraintTop_toBottomOf="@id/post_titleinput"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-2dp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/post_location"
+            android:layout_width="53dp"
+            android:layout_height="52dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/post_location_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Please tag a place here!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/post_location" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
