@@ -37,7 +37,7 @@ class HomeFragment : Fragment(), MatchInfoAdapter.OnMatchListener {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         // FIXME: Replace some mock data with real data here
-        this.mMatchAdapter = MatchInfoAdapter(FakeMatches.matches, this)
+        this.mMatchAdapter = MatchInfoAdapter(FakeMatches.matches,this)
         layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = this.mMatchAdapter
