@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
@@ -13,18 +14,6 @@
         android:autofillHints="Search"
         android:inputType="text" />
 
-    <!--        <LinearLayout-->
-    <!--            android:id="@+id/location_weather_container"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content" >-->
-    <!--            &lt;!&ndash; FIXME: Location and weather widget &ndash;&gt;-->
-
-    <!--            <View-->
-    <!--                android:id="@+id/home_location"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content" />-->
-
-    <!--        </LinearLayout>-->
     <TextView
         android:id="@+id/next_match_prompt"
         android:layout_width="wrap_content"
@@ -35,10 +24,10 @@
         android:textAppearance="@style/medium_text"
         android:text="@string/next_match_prompt"/>
 
-    <!--        TODO: Show this layout dynamically-->
     <include
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         layout="@layout/next_match_info" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -47,6 +36,4 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/common_vertical_margin"
         android:orientation="vertical" />
-
-
 </LinearLayout>

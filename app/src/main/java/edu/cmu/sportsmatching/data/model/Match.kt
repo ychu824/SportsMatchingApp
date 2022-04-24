@@ -1,6 +1,11 @@
 package edu.cmu.sportsmatching.data.model
+enum class Type {
+    MATCH_INVITATION,
+    FRIEND_REQUEST,
+}
 
 data class Match(
+    var type: Type = Type.MATCH_INVITATION,
     val starter: String? = null,
     val title: String? = null,
     val imageUri: String? = null,
