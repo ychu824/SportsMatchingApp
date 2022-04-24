@@ -10,6 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import edu.cmu.sportsmatching.databinding.ActivityMainBinding
 import edu.cmu.sportsmatching.ui.archive.ArchiveFragment
 import edu.cmu.sportsmatching.ui.home.HomeFragment
+import edu.cmu.sportsmatching.ui.profile.ProfileFragment
 import edu.cmu.sportsmatching.ui.startmatch.StartMatchFragment
 
 class MainActivity : AppCompatActivity() {
@@ -64,7 +65,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.user_profile -> {
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                    val fragmentManager: FragmentManager = this.supportFragmentManager
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.setReorderingAllowed(true)
+                    transaction.replace(R.id.main_fragment_container, ProfileFragment())
+                    transaction.commit()
                 }
 
             }
