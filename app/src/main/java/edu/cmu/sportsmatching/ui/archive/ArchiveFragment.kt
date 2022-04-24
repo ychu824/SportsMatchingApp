@@ -1,6 +1,7 @@
 package edu.cmu.sportsmatching.ui.archive
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,7 @@ import edu.cmu.sportsmatching.ui.home.DetailPageFragment
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchViewModel
 
-class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
+class ArchiveFragment(var mArchiveMatchViewModel: ArchiveMatchViewModel) : Fragment(), DetailInfoAdapter.OnMatchListener {
 
     companion object {
         private const val TAG = "ArchiveFragment"
@@ -26,20 +27,19 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
 
     private lateinit var mMatchInfoRecyclerView: RecyclerView
     private lateinit var mMatchAdapter: DetailInfoAdapter
-    private lateinit var mArchiveMatchViewModel: ArchiveMatchViewModel
     private lateinit var binding: FragmentArchiveBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentArchiveBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.archiveRecyclerView
-        mArchiveMatchViewModel = ViewModelProvider(this, ArchiveMatchFactory())
-            .get(ArchiveMatchViewModel::class.java)
 
+        this.mMatchAdapter = DetailInfoAdapter(
+            mArchiveMatchViewModel.archiveMatches.value!!, this
+        )
+        mMatchInfoRecyclerView.adapter = this.mMatchAdapter
         mArchiveMatchViewModel.archiveMatches.observe(this@ArchiveFragment) {
-            val loginResult = it ?: return@observe
-
-//            fixme: update recyclerview with data
-            mMatchInfoRecyclerView.postInvalidate()
+            val archiveMatches = it ?: return@observe
+            mMatchAdapter.notifyDataSetChanged()
         }
     }
 
@@ -52,11 +52,9 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         // FIXME: Replace some mock data with real data here
-        this.mMatchAdapter = DetailInfoAdapter(
-            mArchiveMatchViewModel.archiveMatches.value!!, this)
         layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
-        mMatchInfoRecyclerView.adapter = this.mMatchAdapter
+
 
         return binding.root
     }
@@ -68,7 +66,8 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
             transaction.setReorderingAllowed(true)
             transaction.replace(
                 R.id.main_fragment_container, DetailPageFragment(
-                this.mMatchAdapter.matches[position])
+                    this.mMatchAdapter.matches[position]
+                )
             )
             transaction.commit()
             transaction.addToBackStack(null)

@@ -11,7 +11,7 @@ import java.lang.IllegalArgumentException
 class PendingMatchFactory : ViewModelProvider.Factory{
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SignupViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(PendingMatchViewModel::class.java)) {
             return PendingMatchViewModel(FakeMatches.matches) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

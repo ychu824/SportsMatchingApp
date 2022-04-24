@@ -4,14 +4,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import edu.cmu.sportsmatching.data.SignupRepository
 import edu.cmu.sportsmatching.data.mock.FakeMatches
+import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.ui.signup.SignupViewModel
 import java.lang.IllegalArgumentException
 
-class ArchiveMatchFactory : ViewModelProvider.Factory{
+class ArchiveMatchFactory : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ArchiveMatchViewModel::class.java)) {
-            return ArchiveMatchViewModel(FakeMatches.matches) as T
+            //if we want matches initally, set it to fakematches
+            return ArchiveMatchViewModel() as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
