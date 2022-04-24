@@ -10,7 +10,7 @@ import android.widget.TextView
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.User
 
-class TeamMemberAdaptor(context: Context, val resourceId: Int, data: ArrayList<User>):
+class TeamMemberAdaptor(context: Context, val resourceId: Int, val data: ArrayList<User>):
     ArrayAdapter<User>(context, resourceId, data) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

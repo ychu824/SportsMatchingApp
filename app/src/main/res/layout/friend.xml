@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/cur_team_height"
+        android:layout_height="@dimen/cur_team_width"
+        app:cardCornerRadius="20dp"
+        android:layout_marginEnd="20dp"
+        >
+
+        <ImageView
+            android:id="@+id/user_avatar_friend"
+            android:layout_width="@dimen/cur_team_height"
+            android:layout_height="@dimen/cur_team_width"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/user_name_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <ImageView
+        android:id="@+id/chat_icon"
+        android:layout_width="@dimen/cur_team_height"
+        android:layout_height="@dimen/cur_team_width"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:scaleType="centerCrop"
+        android:layout_gravity="end"
+        android:src="@drawable/chat"/>
+
+</LinearLayout>

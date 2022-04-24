@@ -11,6 +11,7 @@ import edu.cmu.sportsmatching.data.mock.FakeMatches.users
 import edu.cmu.sportsmatching.databinding.ActivityMainBinding
 import edu.cmu.sportsmatching.ui.home.TeamMemberAdaptor
 import edu.cmu.sportsmatching.ui.archive.ArchiveFragment
+import edu.cmu.sportsmatching.ui.home.ChatFragement
 import edu.cmu.sportsmatching.ui.home.DetailPageFragment
 import edu.cmu.sportsmatching.ui.home.HomeFragment
 
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mBottomNavigation: BottomNavigationView
     lateinit var mFragmentManager: FragmentManager
-    private lateinit var listView: ListView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +50,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.friends -> {
                     Toast.makeText(this, "Friends", Toast.LENGTH_SHORT).show()
+                    val fragmentManager: FragmentManager? = this?.supportFragmentManager
+                    if (fragmentManager != null) {
+                        val transaction = fragmentManager.beginTransaction()
+                        transaction.replace(R.id.main_fragment_container, ChatFragement())
+                        transaction.commit()
+                    }
                 }
 
                 R.id.start_match -> {
