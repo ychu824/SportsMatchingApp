@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import edu.cmu.sportsmatching.databinding.ActivityMainBinding
 import edu.cmu.sportsmatching.ui.archive.ArchiveFragment
+import edu.cmu.sportsmatching.ui.home.ChatFragement
+import edu.cmu.sportsmatching.ui.home.DetailPageFragment
 import edu.cmu.sportsmatching.ui.home.HomeFragment
 import edu.cmu.sportsmatching.ui.profile.ProfileFragment
 import edu.cmu.sportsmatching.ui.startmatch.StartMatchFragment
@@ -22,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mBottomNavigation: BottomNavigationView
     lateinit var mFragmentManager: FragmentManager
-    private lateinit var listView: ListView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +47,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.friends -> {
                     Toast.makeText(this, "Friends", Toast.LENGTH_SHORT).show()
+                    val fragmentManager: FragmentManager? = this?.supportFragmentManager
+                    if (fragmentManager != null) {
+                        val transaction = fragmentManager.beginTransaction()
+                        transaction.replace(R.id.main_fragment_container, ChatFragement())
+                        transaction.commit()
+                    }
                 }
 
                 R.id.start_match -> {
