@@ -1,6 +1,7 @@
 package edu.cmu.sportsmatching.ui.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.Match
+import edu.cmu.sportsmatching.data.model.Type
 import kotlin.math.log
 
 class MatchInfoAdapter(
@@ -60,13 +64,24 @@ class MatchInfoAdapter(
     override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
         val match = matches[position]
         holder.userName.text = match.starter
-        holder.matchTitle.text = match.title
+        if (match.type == Type.MATCH_INVITATION) {
+            holder.matchTitle.text = match.title
+        } else {
+            holder.matchTitle.text = "Friend Request"
+            holder.matchTitle.setTextColor(ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
+        }
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
         holder.matchPostImage.setImageResource(R.drawable.basketball_on_court)
         holder.matchLocation.text = "Location: " + match.location
         holder.matchSport.text = "Sport: " + match.sport
-        holder.matchTeam.text = "Team: " + match.currentTeam + "/" + match.totalTeam
+        if (match.type == Type.MATCH_INVITATION) {
+            holder.matchTeam.text = "Team: " + match.currentTeam + "/" + match.totalTeam
+        } else {
+            holder.matchTeam.width = 0
+            holder.matchTeam.height = 0;
+            holder.matchTeam.isInvisible = true
+        }
         holder.matchTime.text = "Time: " + match.startTime + " - " + match.endTime + " " + match.date
     }
 
