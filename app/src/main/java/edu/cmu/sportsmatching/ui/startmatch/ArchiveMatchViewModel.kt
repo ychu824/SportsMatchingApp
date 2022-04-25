@@ -9,20 +9,10 @@ class ArchiveMatchViewModel() : ViewModel() {
     private val _archiveMatches: MutableLiveData<ArrayList<Match>> = MutableLiveData(ArrayList())
     val archiveMatches: LiveData<ArrayList<Match>> = _archiveMatches
 
-
     /**
      * add match from self-created match in 3 and self-approved match in 1
      */
     fun add(match: Match) {
         this._archiveMatches.value?.add(match)
     }
-
-
-//    fun getArchiveViewModel() : ArchiveMatchViewModel{
-////        TODO("Not yet implemented")
-//        return this
-//    }
-
-
-
 }

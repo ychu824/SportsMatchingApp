@@ -58,8 +58,7 @@ class MatchInfoAdapter(
                 this.onMatchListener.onMatchClick(this.adapterPosition)
             }
             this.acceptBtn.setOnClickListener {
-                val selectedMatch: Match = matches.get(this.adapterPosition)
-                // TODO: add current match to archive
+                val selectedMatch: Match = matches[this.adapterPosition]
                 this.archiveMatchesHandler.add(selectedMatch)
                 // remove match from pending archive
                 this.pendingMatchesHandler.removePending(this.adapterPosition)
@@ -108,11 +107,5 @@ class MatchInfoAdapter(
 
     override fun getItemCount(): Int {
         return matches.size
-    }
-
-    fun removeAt(position: Int) {
-        this.matches.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, this.matches.size)
     }
 }
