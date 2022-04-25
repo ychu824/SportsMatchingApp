@@ -1,11 +1,13 @@
 package edu.cmu.sportsmatching.ui.archive
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
@@ -14,8 +16,10 @@ import edu.cmu.sportsmatching.databinding.FragmentArchiveBinding
 import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
 import edu.cmu.sportsmatching.ui.archive.DetailInfoAdapter
 import edu.cmu.sportsmatching.ui.home.DetailPageFragment
+import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
+import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchViewModel
 
-class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
+class ArchiveFragment(var mArchiveMatchViewModel: ArchiveMatchViewModel) : Fragment(), DetailInfoAdapter.OnMatchListener {
 
     companion object {
         private const val TAG = "ArchiveFragment"
@@ -28,6 +32,15 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
         super.onCreate(savedInstanceState)
         binding = FragmentArchiveBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.archiveRecyclerView
+
+        this.mMatchAdapter = DetailInfoAdapter(
+            mArchiveMatchViewModel.archiveMatches.value!!, this
+        )
+        mMatchInfoRecyclerView.adapter = this.mMatchAdapter
+        mArchiveMatchViewModel.archiveMatches.observe(this@ArchiveFragment) {
+            val archiveMatches = it ?: return@observe
+            mMatchAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onCreateView(
@@ -39,10 +52,9 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         // FIXME: Replace some mock data with real data here
-        this.mMatchAdapter = DetailInfoAdapter(FakeMatches.matches, this)
         layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
-        mMatchInfoRecyclerView.adapter = this.mMatchAdapter
+
 
         return binding.root
     }
@@ -54,7 +66,8 @@ class ArchiveFragment: Fragment(), DetailInfoAdapter.OnMatchListener{
             transaction.setReorderingAllowed(true)
             transaction.replace(
                 R.id.main_fragment_container, DetailPageFragment(
-                this.mMatchAdapter.matches[position])
+                    this.mMatchAdapter.matches[position]
+                )
             )
             transaction.commit()
             transaction.addToBackStack(null)

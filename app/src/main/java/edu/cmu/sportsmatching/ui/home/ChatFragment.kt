@@ -14,7 +14,7 @@ import edu.cmu.sportsmatching.data.mock.FakeMatches
 import edu.cmu.sportsmatching.databinding.ChatMainBinding
 import edu.cmu.sportsmatching.databinding.FragmentDetailBinding
 
-class ChatFragement: Fragment() {
+class ChatFragment(private val friendsViewModel: FriendsViewModel): Fragment() {
     companion object {
         private const val TAG = "ChatFragment"
     }
@@ -32,7 +32,7 @@ class ChatFragement: Fragment() {
         if (fragmentManager != null) {
             val adapter = ChatMemberAdapter(
                 this.requireContext(), R.layout.friend,
-                FakeMatches.users, fragmentManager
+                friendsViewModel.friends.value!!, fragmentManager
             )
             binding.friendList.adapter = adapter
         }

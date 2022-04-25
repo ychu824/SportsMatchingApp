@@ -1,7 +1,6 @@
 package edu.cmu.sportsmatching.ui.home
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,17 +8,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.Match
+import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import edu.cmu.sportsmatching.data.model.Type
-import kotlin.math.log
 
 class MatchInfoAdapter(
     val matches: ArrayList<Match>,
-    private val onMatchListener: OnMatchListener
+    private val onMatchListener: OnMatchListener,
+    private val archiveMatchesHandler: ArchiveMatchesHandler,
+    private val pendingMatchesHandler: PendingMatchesHandler
 ) :
     RecyclerView.Adapter<MatchInfoAdapter.MatchViewHolder>() {
 
@@ -27,9 +27,21 @@ class MatchInfoAdapter(
         fun onMatchClick(position: Int)
     }
 
+    interface ArchiveMatchesHandler {
+        fun add(match: Match)
+    }
+
+    interface PendingMatchesHandler {
+        fun addPending(match: Match)
+        fun removePending(position: Int)
+    }
+
+
     inner class MatchViewHolder(
         itemView: View,
-        private val onMatchListener: OnMatchListener
+        private val onMatchListener: OnMatchListener,
+        private val archiveMatchesHandler: ArchiveMatchesHandler,
+        private val pendingMatchesHandler: PendingMatchesHandler
     ) : RecyclerView.ViewHolder(itemView) {
         var userName: TextView = itemView.findViewById(R.id.user_name)
         var matchTitle: TextView = itemView.findViewById(R.id.match_title)
@@ -40,16 +52,19 @@ class MatchInfoAdapter(
         var matchTime: TextView = itemView.findViewById(R.id.match_time)
         var acceptBtn: Button = itemView.findViewById(R.id.accept)
         var closeBtn: Button = itemView.findViewById(R.id.dismiss)
+
         init {
             itemView.setOnClickListener {
                 this.onMatchListener.onMatchClick(this.adapterPosition)
             }
             this.acceptBtn.setOnClickListener {
-                removeAt(this.adapterPosition)
-                // TODO: add current match to archive
+                val selectedMatch: Match = matches[this.adapterPosition]
+                this.archiveMatchesHandler.add(selectedMatch)
+                // remove match from pending archive
+                this.pendingMatchesHandler.removePending(this.adapterPosition)
             }
             this.closeBtn.setOnClickListener {
-                removeAt(this.adapterPosition)
+                this.pendingMatchesHandler.removePending(this.adapterPosition)
             }
         }
     }
@@ -57,7 +72,12 @@ class MatchInfoAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.match_info, parent, false)
-        return MatchViewHolder(view, this.onMatchListener)
+        return MatchViewHolder(
+            view,
+            this.onMatchListener,
+            archiveMatchesHandler,
+            pendingMatchesHandler
+        )
     }
 
     @SuppressLint("SetTextI18n")
@@ -66,9 +86,12 @@ class MatchInfoAdapter(
         holder.userName.text = match.starter
         if (match.type == Type.MATCH_INVITATION) {
             holder.matchTitle.text = match.title
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.black))
         } else {
             holder.matchTitle.text = "Friend Request"
-            holder.matchTitle.setTextColor(ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
         }
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
@@ -87,11 +110,5 @@ class MatchInfoAdapter(
 
     override fun getItemCount(): Int {
         return matches.size
-    }
-
-    fun removeAt(position: Int) {
-        this.matches.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, this.matches.size)
     }
 }

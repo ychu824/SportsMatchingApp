@@ -148,7 +148,7 @@
             android:id="@+id/post_location_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Please tag a place here!"
+            android:hint="Book/Find a location"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/post_location" />

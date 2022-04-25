@@ -14,7 +14,7 @@ import edu.cmu.sportsmatching.data.model.Match
 import kotlin.math.log
 
 class DetailInfoAdapter(
-    val matches: ArrayList<Match>,
+    var matches: ArrayList<Match>,
     private val onMatchListener: OnMatchListener
 ) :
     RecyclerView.Adapter<DetailInfoAdapter.MatchViewHolder>() {
@@ -63,5 +63,10 @@ class DetailInfoAdapter(
 
     override fun getItemCount(): Int {
         return matches.size
+    }
+
+    fun update(list : ArrayList<Match>){
+        matches = list
+        this.notifyDataSetChanged()
     }
 }
