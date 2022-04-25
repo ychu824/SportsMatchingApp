@@ -21,9 +21,6 @@ class PendingMatchViewModel(private val matches : ArrayList<Match>) : ViewModel(
      * remove match if user click agree on 1; return true if success, false otherwise
      */
     fun remove(position: Int) : Boolean{
-        if(!this._pendingMatches.value?.isEmpty()!!){
-            return false
-        }
         val size = this._pendingMatches.value?.size
         if (position >= size!!) {
             return false

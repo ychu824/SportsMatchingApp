@@ -86,9 +86,12 @@ class MatchInfoAdapter(
         holder.userName.text = match.starter
         if (match.type == Type.MATCH_INVITATION) {
             holder.matchTitle.text = match.title
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.black))
         } else {
             holder.matchTitle.text = "Friend Request"
-            holder.matchTitle.setTextColor(ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
         }
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
