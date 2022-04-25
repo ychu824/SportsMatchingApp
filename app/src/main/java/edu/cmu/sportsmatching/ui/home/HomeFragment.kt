@@ -94,11 +94,13 @@ class HomeFragment(
         this.mMatchAdapter.notifyItemInserted(size)
     }
 
-    override fun removePending(match: Match) {
-        val pos: Int = this.archiveMatchViewModel.archiveMatches.value!!.indexOf(match)
-        this.pendingMatchViewModel.remove(match)
+    override fun removePending(position: Int) {
+        this.pendingMatchViewModel.remove(position)
         val size: Int = this.archiveMatchViewModel.archiveMatches.value!!.size
-        this.mMatchAdapter.notifyItemRemoved(pos)
+        this.mMatchAdapter.notifyItemRemoved(position)
+        this.mMatchAdapter.notifyItemRangeChanged(
+            position, size
+        )
     }
 
 

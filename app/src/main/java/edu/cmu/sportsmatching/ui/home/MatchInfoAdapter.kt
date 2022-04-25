@@ -33,7 +33,7 @@ class MatchInfoAdapter(
 
     interface PendingMatchesHandler {
         fun addPending(match: Match)
-        fun removePending(match: Match)
+        fun removePending(position: Int)
     }
 
 
@@ -59,18 +59,13 @@ class MatchInfoAdapter(
             }
             this.acceptBtn.setOnClickListener {
                 val selectedMatch: Match = matches.get(this.adapterPosition)
-                removeAt(this.adapterPosition)
                 // TODO: add current match to archive
                 this.archiveMatchesHandler.add(selectedMatch)
-
-                // remove match from pendingarchive
-                this.pendingMatchesHandler.removePending(selectedMatch)
+                // remove match from pending archive
+                this.pendingMatchesHandler.removePending(this.adapterPosition)
             }
             this.closeBtn.setOnClickListener {
-                val selectedMatch: Match = matches.get(this.adapterPosition)
-                removeAt(this.adapterPosition)
-
-                this.pendingMatchesHandler.removePending(selectedMatch)
+                this.pendingMatchesHandler.removePending(this.adapterPosition)
             }
         }
     }

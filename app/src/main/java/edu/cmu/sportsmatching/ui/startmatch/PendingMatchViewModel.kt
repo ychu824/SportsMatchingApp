@@ -20,14 +20,15 @@ class PendingMatchViewModel(private val matches : ArrayList<Match>) : ViewModel(
     /**
      * remove match if user click agree on 1; return true if success, false otherwise
      */
-    fun remove(match : Match) : Boolean{
+    fun remove(position: Int) : Boolean{
         if(!this._pendingMatches.value?.isEmpty()!!){
             return false
         }
-        if(!this._pendingMatches.value?.contains(match)!!){
+        val size = this._pendingMatches.value?.size
+        if (position >= size!!) {
             return false
         }
-        this._pendingMatches.value?.remove(match)
+        this._pendingMatches.value?.removeAt(position)
         return true
     }
 }
