@@ -65,60 +65,86 @@
             app:layout_constraintTop_toBottomOf="@id/startmatch_simpleCalendarView" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/startmatch_startTime"
-            tools:ignore="MissingConstraints">
 
-            <TextView
-                android:id="@+id/startmatch_to"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/to"
-                android:textAppearance="@style/mid_title"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/startmatch_et_endTime"
-                app:layout_constraintHorizontal_bias="0.238"
-                app:layout_constraintStart_toEndOf="@+id/startmatch_et_startTime"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.478" />
-
-            <EditText
-                android:id="@+id/startmatch_et_endTime"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:autofillHints="@string/_18_00"
-                android:ellipsize="start"
-                android:gravity="center_horizontal"
-                android:hint="@string/_18_00"
-                android:inputType="text"
-                android:selectAllOnFocus="true"
-
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/startmatch_to"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.545" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/startmatch_startTime">
 
-            <EditText
-                android:id="@+id/startmatch_et_startTime"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/_16_00"
-                android:ellipsize="start"
-                android:gravity="center_horizontal"
-                android:hint="@string/_16_00"
-                android:inputType="text"
-                android:selectAllOnFocus="true"
-                tools:layout_editor_absoluteX="40dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/startmatch_et_startTime"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:autofillHints="@string/_16_00"
+                    android:background="@drawable/round_edit_text"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="@string/_16_00"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true"
+                    tools:layout_editor_absoluteY="3dp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/startmatch_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/to"
+                    android:textAppearance="@style/mid_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/startmatch_et_endTime"
+                    app:layout_constraintHorizontal_bias="0.238"
+                    app:layout_constraintStart_toEndOf="@+id/startmatch_et_startTime"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.478" />
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <EditText
+
+                    android:id="@+id/startmatch_et_endTime"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:autofillHints="@string/_18_00"
+                    android:background="@drawable/round_edit_text"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="@string/_18_00"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/startmatch_to"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+
+
+            </LinearLayout>
 
         <TextView
             android:id="@+id/startmatch_proficiency"
@@ -168,6 +194,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/startmatch_sportsType" />
 
+
         <View
             android:id="@+id/divider_line_2"
             style="@style/Divider"
@@ -190,15 +217,18 @@
         <EditText
             android:id="@+id/startmatch_et_numTeamMates"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:autofillHints="@string/five"
             android:hint="@string/five"
+            android:background="@drawable/round_edit_text"
             android:inputType="text"
+            android:gravity="center"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/startmatch_numTeamMembers" />
+
 
         <Button
             android:id="@+id/startmatch_continue_button"
