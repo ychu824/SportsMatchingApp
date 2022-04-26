@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="64dp">
+    android:paddingBottom="64dp"
+    tools:context=".ui.startmatch.StartMatchFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/startmatch_title"
@@ -85,7 +86,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/startmatch_et_endTime"
                 app:layout_constraintHorizontal_bias="0.238"
                 app:layout_constraintStart_toEndOf="@+id/startmatch_et_startTime"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.478" />
 
             <EditText
                 android:id="@+id/startmatch_et_endTime"
@@ -199,7 +201,7 @@
             app:layout_constraintTop_toBottomOf="@id/startmatch_numTeamMembers" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/startmatch_continue_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
