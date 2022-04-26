@@ -12,7 +12,7 @@ class ArchiveMatchFactory : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ArchiveMatchViewModel::class.java)) {
-            //if we want matches initally, set it to fakematches
+            //if we want matches initially, set it to fakematches
             return ArchiveMatchViewModel() as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

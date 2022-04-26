@@ -27,12 +27,12 @@ object FakeMatches {
     val matches: ArrayList<Match> = ArrayList()
 
     init {
+        for (i in 0 until 2) {
+            this.matches.add(fakeRequest)
+        }
         for (i in 0 until 1) {
             this.matches.add(fakeMatch)
             this.matches.add(fakeMatch_1)
-        }
-        for (i in 0 until 2) {
-            this.matches.add(fakeRequest)
         }
     }
 
@@ -42,6 +42,5 @@ object FakeMatches {
         for (i in 0 until 5) {
             this.users.add(fakeUser)
         }
-
     }
 }

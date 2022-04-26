@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.mock.FakeMatches
 import edu.cmu.sportsmatching.data.model.Match
+import edu.cmu.sportsmatching.data.model.Type
+import edu.cmu.sportsmatching.data.model.User
 import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
 import edu.cmu.sportsmatching.ui.login.LoginViewModel
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
@@ -22,8 +24,9 @@ import edu.cmu.sportsmatching.ui.startmatch.PendingMatchFactory
 import edu.cmu.sportsmatching.ui.startmatch.PendingMatchViewModel
 
 class HomeFragment(
-    var pendingMatchViewModel: PendingMatchViewModel,
-    var archiveMatchViewModel: ArchiveMatchViewModel
+    private val pendingMatchViewModel: PendingMatchViewModel,
+    private val archiveMatchViewModel: ArchiveMatchViewModel,
+    private val friendsViewModel: FriendsViewModel
 ) : Fragment(), MatchInfoAdapter.OnMatchListener,
     MatchInfoAdapter.ArchiveMatchesHandler,
     MatchInfoAdapter.PendingMatchesHandler {
@@ -31,18 +34,11 @@ class HomeFragment(
     private lateinit var mMatchInfoRecyclerView: RecyclerView
     private lateinit var mMatchAdapter: MatchInfoAdapter
     private lateinit var binding: FragmentHomeBinding
-//    private lateinit var archiveMatchViewModel: ArchiveMatchViewModel
-//    private lateinit var pendingMatchViewModel: PendingMatchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentHomeBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.matchInfoRecyclerView
-//        archiveMatchViewModel =
-//            ViewModelProvider(this, ArchiveMatchFactory()).get(ArchiveMatchViewModel::class.java)
-
-//        pendingMatchViewModel =
-//            ViewModelProvider(this, PendingMatchFactory()).get(PendingMatchViewModel::class.java)
     }
 
     companion object {
@@ -82,10 +78,11 @@ class HomeFragment(
     }
 
     override fun add(match: Match) {
-        this.archiveMatchViewModel.add(match) //size++
-        Log.d(TAG, this.archiveMatchViewModel.archiveMatches.hasActiveObservers().toString())
-//        this.mMatchAdapter.notifyItemInserted(this.mMatchAdapter.itemCount)
-//        System.err.println(this.archiveMatchViewModel.archiveMatches.value!!.size)
+        if (match.type == Type.MATCH_INVITATION) {
+            this.archiveMatchViewModel.add(match) //size++
+        } else {
+            this.friendsViewModel.addFriend(User(match.starter, ""))
+        }
     }
 
     override fun addPending(match: Match) {
@@ -102,6 +99,4 @@ class HomeFragment(
             position, size
         )
     }
-
-
 }

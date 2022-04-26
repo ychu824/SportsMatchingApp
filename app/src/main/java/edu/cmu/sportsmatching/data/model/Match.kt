@@ -6,7 +6,7 @@ enum class Type {
 
 data class Match(
     var type: Type = Type.MATCH_INVITATION,
-    val starter: String? = null,
+    val starter: String,
     val title: String? = null,
     val imageUri: String? = null,
     val location: String? = null,

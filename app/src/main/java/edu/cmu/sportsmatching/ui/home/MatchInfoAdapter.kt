@@ -58,8 +58,7 @@ class MatchInfoAdapter(
                 this.onMatchListener.onMatchClick(this.adapterPosition)
             }
             this.acceptBtn.setOnClickListener {
-                val selectedMatch: Match = matches.get(this.adapterPosition)
-                // TODO: add current match to archive
+                val selectedMatch: Match = matches[this.adapterPosition]
                 this.archiveMatchesHandler.add(selectedMatch)
                 // remove match from pending archive
                 this.pendingMatchesHandler.removePending(this.adapterPosition)
@@ -87,9 +86,12 @@ class MatchInfoAdapter(
         holder.userName.text = match.starter
         if (match.type == Type.MATCH_INVITATION) {
             holder.matchTitle.text = match.title
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.black))
         } else {
             holder.matchTitle.text = "Friend Request"
-            holder.matchTitle.setTextColor(ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
+            holder.matchTitle.setTextColor(
+                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
         }
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
@@ -108,11 +110,5 @@ class MatchInfoAdapter(
 
     override fun getItemCount(): Int {
         return matches.size
-    }
-
-    fun removeAt(position: Int) {
-        this.matches.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, this.matches.size)
     }
 }
