@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import edu.cmu.sportsmatching.R
@@ -58,33 +59,44 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
             //if valid
 //            get match
 
-            var curMatch: Match = Match(
-                title = postTitle.text.toString(),
-                mainText = mainText.text.toString(),
-                location = location.text.toString(),
-                starter = "Me",
-                currentTeam = match.currentTeam,
-                sport = match.sport,
-                startTime = match.startTime,
-                endTime = match.endTime,
-                date = match.date,
-                participants = listOf(),
-                imageUri = "https://cdn.vox-cdn.com/thumbor/l3P7vpY-Onaliz9OsgUz3y2mlh0=/0x0:4022x2681/920x613/filters:focal(1627x217:2269x859):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70624496/usa_today_17896947.0.jpg"
-            )
 
-            archiveMatchViewModel.add(curMatch)
-
-            val fragmentManager: FragmentManager? = activity?.supportFragmentManager
-            if (fragmentManager != null) {
-                val transaction = fragmentManager.beginTransaction()
-                transaction.setReorderingAllowed(true)
-                transaction.replace(
-                    R.id.main_fragment_container,
-                    ArchiveFragment(archiveMatchViewModel)
+            if (postTitle.text.toString().isEmpty()) {
+                Toast.makeText(activity, "Title cannot be empty!", Toast.LENGTH_SHORT).show()
+            } else if (mainText.text.toString().isEmpty()) {
+                Toast.makeText(activity, "Text cannot be empty!", Toast.LENGTH_SHORT).show()
+            } else if (location.text.toString().isEmpty()) {
+                Toast.makeText(activity, "Location cannot be empty!", Toast.LENGTH_SHORT).show()
+            } else {
+                var curMatch: Match = Match(
+                    title = postTitle.text.toString(),
+                    mainText = mainText.text.toString(),
+                    location = location.text.toString(),
+                    starter = "Me",
+                    currentTeam = match.currentTeam,
+                    sport = match.sport,
+                    startTime = match.startTime,
+                    endTime = match.endTime,
+                    date = match.date,
+                    participants = listOf(),
+                    totalTeam = match.currentTeam,
+                    imageUri = "https://cdn.vox-cdn.com/thumbor/l3P7vpY-Onaliz9OsgUz3y2mlh0=/0x0:4022x2681/920x613/filters:focal(1627x217:2269x859):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70624496/usa_today_17896947.0.jpg"
                 )
-                transaction.commit()
-                transaction.addToBackStack(null)
+
+                archiveMatchViewModel.add(curMatch)
+
+                val fragmentManager: FragmentManager? = activity?.supportFragmentManager
+                if (fragmentManager != null) {
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.setReorderingAllowed(true)
+                    transaction.replace(
+                        R.id.main_fragment_container,
+                        ArchiveFragment(archiveMatchViewModel)
+                    )
+                    transaction.commit()
+                    transaction.addToBackStack(null)
+                }
             }
+
         }
         return v
     }

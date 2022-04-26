@@ -12,6 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import edu.cmu.sportsmatching.R
 import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.databinding.FragmentStartmatchBinding
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 
 class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fragment() {
@@ -103,7 +107,7 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
         }
 
         val teamNum: EditText = v.findViewById(R.id.startmatch_et_numTeamMates)
-        var curDate: String = "March 30th"
+        var curDate: String = ""
         val calendarView: CalendarView = v.findViewById(R.id.startmatch_simpleCalendarView)
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
             curDate = dayOfMonth.toString()
@@ -118,35 +122,14 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
 
 
         continue_button.setOnClickListener {
-//            val canContinue: Boolean = startMatchViewModel.startMatchState.value!!.isContinueValid
-//            if (!canContinue) {
-//                var error: String
-//                if (startMatchViewModel.startMatchState.value!!.startTimeError != null) {
-//                    error = startMatchViewModel.startMatchState.value!!.startTimeError!!
-//                } else {
-//                    error = startMatchViewModel.startMatchState.value!!.teammatesNumError!!
-//                }
-//                Toast.makeText(
-//                    activity,
-//                    error,
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else {
 
-
-//            if (!canContinue) {
-//                var error: String
-//                if (startMatchViewModel.startMatchState.value!!.startTimeError != null) {
-//                    error = startMatchViewModel.startMatchState.value!!.startTimeError!!
-//                } else {
-//                    error = startMatchViewModel.startMatchState.value!!.teammatesNumError!!
-//                }
-//                Toast.makeText(
-//                    activity,
-//                    error,
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }else{
+            if (!isTimeValid(startTime.text.toString(), endTime.text.toString())) {
+                Toast.makeText(activity, "Start/End time incorrect!", Toast.LENGTH_SHORT).show()
+            } else if (!isTeammateNumValid(teamNum.text.toString())) {
+                Toast.makeText(activity, "Team member number incorrect!", Toast.LENGTH_SHORT).show()
+            } else if (curDate == "") {
+                Toast.makeText(activity, "Date is incorrect!", Toast.LENGTH_SHORT).show()
+            } else {
                 var match: Match = Match(
                     starter = "Me",
                     currentTeam = teamNum.text.toString().toInt(),
@@ -156,7 +139,6 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
                     date = curDate,
                     participants = listOf()
                 )
-//            archiveMatchViewModel.archiveMatches.value!!.add(match)
                 continue_button.isEnabled = true
                 val fragmentManager: FragmentManager? = activity?.supportFragmentManager
                 if (fragmentManager != null) {
@@ -169,14 +151,58 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
                     transaction.commit()
                     transaction.addToBackStack(null)
                 }
-//            }
-
-
+            }
 
 
         }
 
         return v
+    }
+
+    private fun isTimeValid(startTime: String, endTime: String): Boolean {
+        val regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]"
+        val p: Pattern = Pattern.compile(regex)
+        if (startTime == null || endTime == null) {
+            return false
+        }
+
+        //validate corrent time
+        val m_start: Matcher = p.matcher(startTime)
+        if (m_start.matches() == false) {
+            return false
+        }
+        val m_end: Matcher = p.matcher(endTime)
+        if (m_end.matches() == false) {
+            return false
+        }
+
+        // TODO: check start time precede to end time
+        val start_hour = startTime.split(":")[0]
+        val start_min = startTime.split(":")[1]
+        val end_hour = endTime.split(":")[0]
+        val end_min = endTime.split(":")[1]
+
+        if (start_hour.toInt() > end_hour.toInt()) {
+            return false
+        }
+        if (start_hour.toInt() == end_hour.toInt() && start_min.toInt() > end_min.toInt()) {
+            return false
+        }
+
+
+        return true
+
+    }
+
+    private fun isTeammateNumValid(num: String): Boolean {
+        val parsedInt: Int
+        try {
+            parsedInt = num.toInt()
+        } catch (nfe: NumberFormatException) {
+            // not a valid int
+            return false
+        }
+        return parsedInt >= 1
     }
 
 
