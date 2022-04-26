@@ -19,7 +19,8 @@ import edu.cmu.sportsmatching.ui.home.DetailPageFragment
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchViewModel
 
-class ArchiveFragment(var mArchiveMatchViewModel: ArchiveMatchViewModel) : Fragment(), DetailInfoAdapter.OnMatchListener {
+class ArchiveFragment(var mArchiveMatchViewModel: ArchiveMatchViewModel) : Fragment(),
+    DetailInfoAdapter.OnMatchListener {
 
     companion object {
         private const val TAG = "ArchiveFragment"

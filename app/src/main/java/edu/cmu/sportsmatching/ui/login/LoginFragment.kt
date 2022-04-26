@@ -104,7 +104,6 @@ class LoginFragment : Fragment() {
         }
 
         register.setOnClickListener {
-            // TODO: replace with RegisterFragment
             val fragmentManager: FragmentManager? = activity?.supportFragmentManager
             if (fragmentManager != null) {
                 val transaction = fragmentManager.beginTransaction()
