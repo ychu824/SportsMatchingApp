@@ -1,22 +1,23 @@
 package edu.cmu.sportsmatching.ui.startmatch
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.CalendarView.OnDateChangeListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import edu.cmu.sportsmatching.R
+import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.databinding.FragmentStartmatchBinding
-import edu.cmu.sportsmatching.ui.home.MatchInfoAdapter
 
 
 class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fragment() {
 
-    private lateinit var mMatchAdapter: MatchInfoAdapter
     private lateinit var binding: FragmentStartmatchBinding
+    private lateinit var startMatchViewModel: StartMatchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,10 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
 
         val sport_type = binding.startmatchSportsTypeDropdown
         val num_teammates = binding.startmatchEtNumTeamMates
+
+
+        startMatchViewModel = ViewModelProvider(this, StartMatchViewModelFactory())
+            .get(StartMatchViewModel::class.java)
 
 
     }
@@ -40,6 +45,9 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
         //prof spinner part
 
         val v: View = inflater.inflate(R.layout.fragment_startmatch, container, false)
+
+
+        var prof_type: String = "Beginner"
         var prof_spinner: Spinner = v.findViewById(R.id.startmatch_proficiency_dropdown)
         val prof_adapter = ArrayAdapter.createFromResource(
             this.requireContext(),
@@ -57,8 +65,7 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
                 id: Long
             ) {
 //                TODO("Not yet implemented")
-                val text: String = parent?.getItemAtPosition(position).toString()
-                System.err.println(text)
+                prof_type = parent?.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -66,6 +73,8 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
             }
 
         }
+        var sport_type: String = "Table Tennis"
+
 
 //        sport_type spinner part
         var sport_type_spinner: Spinner = v.findViewById(R.id.startmatch_sportsType_dropdown)
@@ -84,6 +93,7 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
                 id: Long
             ) {
 //                TODO("Not yet implemented")
+                sport_type = parent?.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -92,21 +102,77 @@ class StartMatchFragment(var archiveMatchViewModel: ArchiveMatchViewModel) : Fra
 
         }
 
+        val teamNum: EditText = v.findViewById(R.id.startmatch_et_numTeamMates)
+        var curDate: String = "March 30th"
+        val calendarView: CalendarView = v.findViewById(R.id.startmatch_simpleCalendarView)
+        calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
+            curDate = dayOfMonth.toString()
+        })
+        val startTime: EditText = v.findViewById(R.id.startmatch_et_startTime)
+
+        val endTime: EditText = v.findViewById(R.id.startmatch_et_endTime)
+
 
         //continue_button
-        val continue_button : Button = v.findViewById(R.id.startmatch_continue_button)
+        val continue_button: Button = v.findViewById(R.id.startmatch_continue_button)
 
 
         continue_button.setOnClickListener {
-            Log.d("Con", "Continue button")
-            val fragmentManager: FragmentManager? = activity?.supportFragmentManager
-            if (fragmentManager != null) {
-                val transaction = fragmentManager.beginTransaction()
-                transaction.setReorderingAllowed(true)
-                transaction.replace(R.id.main_fragment_container, StartMatchPostFragment(archiveMatchViewModel))
-                transaction.commit()
-                transaction.addToBackStack(null)
-            }
+//            val canContinue: Boolean = startMatchViewModel.startMatchState.value!!.isContinueValid
+//            if (!canContinue) {
+//                var error: String
+//                if (startMatchViewModel.startMatchState.value!!.startTimeError != null) {
+//                    error = startMatchViewModel.startMatchState.value!!.startTimeError!!
+//                } else {
+//                    error = startMatchViewModel.startMatchState.value!!.teammatesNumError!!
+//                }
+//                Toast.makeText(
+//                    activity,
+//                    error,
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            } else {
+
+
+//            if (!canContinue) {
+//                var error: String
+//                if (startMatchViewModel.startMatchState.value!!.startTimeError != null) {
+//                    error = startMatchViewModel.startMatchState.value!!.startTimeError!!
+//                } else {
+//                    error = startMatchViewModel.startMatchState.value!!.teammatesNumError!!
+//                }
+//                Toast.makeText(
+//                    activity,
+//                    error,
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }else{
+                var match: Match = Match(
+                    starter = "Me",
+                    currentTeam = teamNum.text.toString().toInt(),
+                    sport = sport_type,
+                    startTime = startTime.text.toString(),
+                    endTime = endTime.text.toString(),
+                    date = curDate,
+                    participants = listOf()
+                )
+//            archiveMatchViewModel.archiveMatches.value!!.add(match)
+                continue_button.isEnabled = true
+                val fragmentManager: FragmentManager? = activity?.supportFragmentManager
+                if (fragmentManager != null) {
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.setReorderingAllowed(true)
+                    transaction.replace(
+                        R.id.main_fragment_container,
+                        StartMatchPostFragment(archiveMatchViewModel, match)
+                    )
+                    transaction.commit()
+                    transaction.addToBackStack(null)
+                }
+//            }
+
+
+
 
         }
 

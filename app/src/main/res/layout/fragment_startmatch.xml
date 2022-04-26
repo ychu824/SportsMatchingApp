@@ -206,7 +206,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="#67BC5F"
-            android:enabled="true"
             android:text="@string/continue_str"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
