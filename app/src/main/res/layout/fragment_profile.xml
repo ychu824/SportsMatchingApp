@@ -336,22 +336,38 @@
                 android:longClickable="false"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            app:cardCornerRadius="20dp">
-            <Button
+        
+            <LinearLayout
+                android:id="@+id/user_rating"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:text="Sign out"
-                android:background="#22C32E"
-                android:textSize="20sp"
-                android:textColor="#FFFFFF"
-                android:id="@+id/button2"/>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_background">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User Rating"
+                    android:textAppearance="@style/big_title"
+                    />
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rating_content_list"/>
+
+            </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/sign_out"
+            android:background="#22C32E"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:id="@+id/button2"/>
+
+        </LinearLayout>
+
 </ScrollView>
