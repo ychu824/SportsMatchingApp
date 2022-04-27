@@ -56,10 +56,6 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
         postButton.setOnClickListener {
 
 
-            //if valid
-//            get match
-
-
             if (postTitle.text.toString().isEmpty()) {
                 Toast.makeText(activity, "Title cannot be empty!", Toast.LENGTH_SHORT).show()
             } else if (mainText.text.toString().isEmpty()) {

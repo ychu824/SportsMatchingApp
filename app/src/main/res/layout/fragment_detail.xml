@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="56dp"
         android:layout_marginVertical="@dimen/common_vertical_margin">
 
     <LinearLayout
@@ -20,6 +22,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/close"
+            android:layout_gravity="start"
             />
 
         <TextView
