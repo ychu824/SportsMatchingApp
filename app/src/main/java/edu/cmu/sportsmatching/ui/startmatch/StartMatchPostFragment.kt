@@ -90,7 +90,7 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
                     transaction.setReorderingAllowed(true)
                     transaction.replace(
                         R.id.main_fragment_container,
-                        ArchiveFragment(archiveMatchViewModel)
+                        MatchCreateFragment(archiveMatchViewModel)
                     )
                     transaction.commit()
                     transaction.addToBackStack(null)

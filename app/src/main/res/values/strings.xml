@@ -85,4 +85,7 @@
     <string name="cancel_the_event">cancel event</string>
     <string name="_3_remaining">3 remaining</string>
     <string name="friends">Friends/Team</string>
+    <string name="congrats">Congrats</string>
+    <string name="your_match_has_been_created">Your Match Has Been Created!</string>
+    <string name="now_waiting_for_other_players">Now waiting for other players...</string>
 </resources>
