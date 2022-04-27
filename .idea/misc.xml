@@ -25,12 +25,14 @@
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/chat_input.xml" value="0.36666666666666664" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/chat_main.xml" value="0.36666666666666664" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/current_team_info.xml" value="0.36666666666666664" />
-        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_archive.xml" value="0.1" />
+        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_detail.xml" value="0.22" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_home.xml" value="0.1796875" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_login.xml" value="0.1796875" />
+        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_matchcreate.xml" value="0.22" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_signup.xml" value="0.1796875" />
-        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_startmatch.xml" value="0.2875" />
+        <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_startmatch.xml" value="0.26506024096385544" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_startmatchpost.xml" value="0.25" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/fragment_topost.xml" value="0.36666666666666664" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/home_frag.xml" value="0.1796875" />
