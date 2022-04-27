@@ -52,11 +52,11 @@ class HomeFragment(
         savedInstanceState: Bundle?
     ): View {
         val layoutManager = LinearLayoutManager(activity)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        layoutManager.scrollToPositionWithOffset(1, -50)
         // FIXME: Replace some mock data with real data here
         this.mMatchAdapter =
             MatchInfoAdapter(this.pendingMatchViewModel.pendingMatches.value!!, this, this, this)
-        layoutManager.scrollToPositionWithOffset(0, 0)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = this.mMatchAdapter
         return binding.root

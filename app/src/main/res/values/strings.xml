@@ -85,4 +85,5 @@
     <string name="cancel_the_event">cancel event</string>
     <string name="_3_remaining">3 remaining</string>
     <string name="friends">Friends/Team</string>
+    <string name="search_prompt">Looking for a team to join?</string>
 </resources>
