@@ -87,4 +87,5 @@
     <string name="friends">Friends/Team</string>
     <string name="check_in">check in</string>
     <string name="sign_out">Sign out</string>
+    <string name="search_prompt">Looking for a team to join?</string>
 </resources>
