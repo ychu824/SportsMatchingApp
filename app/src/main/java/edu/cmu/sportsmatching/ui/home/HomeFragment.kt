@@ -54,7 +54,7 @@ class HomeFragment(
         savedInstanceState: Bundle?
     ): View {
         val layoutManager = LinearLayoutManager(activity)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         // FIXME: Replace some mock data with real data here
         this.mMatchAdapter =
             MatchInfoAdapter(this.pendingMatchViewModel.pendingMatches.value!!, this, this, this)
