@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< Updated upstream
         <entry key="..\:/SportsMatchingApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.188" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/drawable/add_circle.xml" value="0.1785" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/drawable/add_person.xml" value="0.1425" />
@@ -38,7 +39,30 @@
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/next_match_info.xml" value="0.1796875" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/layout/profile_frag.xml" value="0.1796875" />
         <entry key="..\:/SportsMatchingApp/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
+=======
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/drawable/loadingbox.xml" value="0.1455" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/brief_match_info.xml" value="0.1" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/chat_input.xml" value="0.176" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/chat_main.xml" value="0.264" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/chatting_page.xml" value="0.2" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/current_team_info.xml" value="0.21302083333333333" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_archive.xml" value="0.1546875" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_detail.xml" value="0.264" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_home.xml" value="0.136" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/fragment_startmatchpost.xml" value="0.1" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/friend.xml" value="0.4" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/location_info.xml" value="0.21302083333333333" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/match_info.xml" value="0.264" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/next_match_info.xml" value="0.25" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/profile_frag.xml" value="0.1546875" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/rate_home.xml" value="0.4" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/rate_match_info.xml" value="0.536" />
+        <entry key="..\:/Alice/Grad_School/Spring_2022/17781/SportsMatchingApp/app/src/main/res/layout/team_member.xml" value="0.176" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/add_circle.xml" value="0.1885" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/border_background.xml" value="0.187" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/chat_room.xml" value="0.1885" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/group.xml" value="0.1885" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/home_filled.xml" value="0.1885" />
@@ -46,9 +70,23 @@
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/drawable/user_profile.xml" value="0.1885" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/fragment_home.xml" value="0.10666666666666667" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/fragment_signup.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/login_frag.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/match_info.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/next_match_info.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/layout/profile_frag.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/yucheng/StudioProjects/SportsMatching/app/src/main/res/menu/toolbar.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/layout/brief_match_info.xml" value="0.22418478260869565" />
+        <entry key="app/src/main/res/layout/current_team_info.xml" value="0.159375" />
+        <entry key="app/src/main/res/layout/fragment_archive.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.18478260869565216" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.12689969604863222" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.12689969604863222" />
+        <entry key="app/src/main/res/layout/match_info.xml" value="0.18478260869565216" />
+        <entry key="app/src/main/res/layout/team_member.xml" value="0.12689969604863222" />
       </map>
     </option>
   </component>

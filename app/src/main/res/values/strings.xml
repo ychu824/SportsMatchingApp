@@ -71,7 +71,7 @@
     <string name="test_match_time">Time: 16:00 - 18:00 March 30th</string>
     <string name="incoming_match">Incoming</string>
     <string name="pending_match">Pending</string>
-    <string name="next_match_prompt">Your next event will be in</string>
+    <string name="next_match_prompt">Your next game will be in</string>
     <string name="next_match_count_down">5:00 mins</string>
     <string name="detail_page_title">CALL OUT FOR BASKETBALL GAME 4:PM AT PITTSBURGH</string>
     <string name="detail_page_main_text">Looking for people to join our basketball game at basketball field in CMU campus! From 4 pm to 6 pm or later! Welcome anyone who is above 18 and interested! No requirement for skills and levels!</string>
@@ -85,5 +85,7 @@
     <string name="cancel_the_event">cancel event</string>
     <string name="_3_remaining">3 remaining</string>
     <string name="friends">Friends/Team</string>
+    <string name="check_in">check in</string>
+    <string name="sign_out">Sign out</string>
     <string name="search_prompt">Looking for a team to join?</string>
 </resources>

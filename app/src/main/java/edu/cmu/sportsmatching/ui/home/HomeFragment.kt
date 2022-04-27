@@ -34,11 +34,13 @@ class HomeFragment(
     private lateinit var mMatchInfoRecyclerView: RecyclerView
     private lateinit var mMatchAdapter: MatchInfoAdapter
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var checkOutListener: OnCheckOutListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentHomeBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.matchInfoRecyclerView
+
     }
 
     companion object {
@@ -53,12 +55,22 @@ class HomeFragment(
     ): View {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        layoutManager.scrollToPositionWithOffset(1, -50)
+
         // FIXME: Replace some mock data with real data here
         this.mMatchAdapter =
             MatchInfoAdapter(this.pendingMatchViewModel.pendingMatches.value!!, this, this, this)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = this.mMatchAdapter
+
+
+        val fragmentManager: FragmentManager? = activity?.supportFragmentManager
+        if (fragmentManager != null) {
+            checkOutListener = OnCheckOutListener(fragmentManager, pendingMatchViewModel, archiveMatchViewModel, friendsViewModel)
+            binding.nextMatch.checkIn.setOnClickListener {
+                checkOutListener.onChatClick()
+            }
+        }
+
         return binding.root
     }
 

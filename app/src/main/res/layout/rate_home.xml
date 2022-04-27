@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <EditText
         android:id="@+id/home_search"
-        android:layout_marginVertical="@dimen/common_vertical_margin"
-        android:gravity="center_vertical"
-        android:layout_width="270dp"
+        android:layout_width="240dp"
         android:layout_height="50dp"
-        android:paddingStart="20dp"
+        android:layout_marginVertical="@dimen/common_vertical_margin"
         android:autofillHints="Search"
-        android:text="@string/search_prompt"
-        android:textSize="18sp"
-        android:textColor="#B5B5B5"
-        android:background="@drawable/round_edit_text"
-        tools:ignore="RtlSymmetry" />
+        android:inputType="text"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/next_match_prompt"
@@ -28,20 +24,18 @@
         android:layout_marginStart="55dp"
         android:layout_marginVertical="@dimen/common_vertical_margin"
         android:textAppearance="@style/medium_text"
-        android:text="@string/next_match_prompt"/>
+        android:text="Rate your game &amp; sports mates"/>
 
     <include
-        android:id="@+id/next_match"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        layout="@layout/next_match_info" />
+        android:layout_marginHorizontal="20dp"
+        layout="@layout/rate_match_info" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/match_info_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/common_vertical_margin"
-        android:paddingBottom="56dp"
         android:orientation="vertical" />
 </LinearLayout>

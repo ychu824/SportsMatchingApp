@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.friends -> {
-                    Toast.makeText(this, "Friends", Toast.LENGTH_SHORT).show()
                     val fragmentManager: FragmentManager = this.supportFragmentManager
                     val transaction = fragmentManager.beginTransaction()
                     transaction.replace(R.id.main_fragment_container, ChatFragment(mFriendsViewModel))

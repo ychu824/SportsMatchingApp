@@ -9,14 +9,7 @@
     android:layout_marginVertical="@dimen/common_vertical_margin"
     android:background="@drawable/border_background">
 
-    <TextView
-        android:id="@+id/next_match_count_down"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:text="@string/next_match_count_down"/>
+
 
     <LinearLayout
         android:layout_gravity="start"
@@ -46,9 +39,9 @@
             android:id="@+id/current_user_name"
             android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:text="@string/test_user_name"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
     </LinearLayout>
 
@@ -84,11 +77,5 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/check_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="@string/check_in" />
 
 </LinearLayout>
