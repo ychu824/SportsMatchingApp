@@ -24,6 +24,12 @@ object FakeMatches {
         participants = listOf()
     )
 
+    private val fakeMatch_2 = Match(starter = "Zongyue Pu", title = "Looking for three people to play Badminton tomorrow",
+        imageUri = "https://cdn.vox-cdn.com/thumbor/l3P7vpY-Onaliz9OsgUz3y2mlh0=/0x0:4022x2681/920x613/filters:focal(1627x217:2269x859):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70624496/usa_today_17896947.0.jpg", currentTeam = 1, totalTeam = 4, location = "Pittsburgh, PA, 15217",
+        sport = "Badminton", startTime = "16:00", endTime = "17:00", date = "April 28th", mainText = "",
+        participants = listOf()
+    )
+
     val matches: ArrayList<Match> = ArrayList()
 
     init {
@@ -34,6 +40,7 @@ object FakeMatches {
             this.matches.add(fakeMatch)
             this.matches.add(fakeMatch_1)
         }
+        this.matches.add(fakeMatch_2)
     }
 
     val fakeUser = User(name = "Yizhou Liu", password = "", phone = "", email = "")
@@ -43,4 +50,6 @@ object FakeMatches {
             this.users.add(fakeUser)
         }
     }
+
+    var checked = false
 }

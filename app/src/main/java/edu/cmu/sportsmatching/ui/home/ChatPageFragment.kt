@@ -54,7 +54,7 @@ class ChatPageFragment(private val user: User): Fragment() {
 
         val chatContent = binding.chatContent
         val targetUser = binding.targetUser
-        val data = listOf<String>("Zhang San", "Li Si")
+        val data = listOf<String>("Yinghan Wang", "Zongyue Pu")
         val adapter = context?.let { ArrayAdapter<String>(it, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, data) }
         targetUser.adapter = adapter
         binding.chatSubmit.setOnClickListener {

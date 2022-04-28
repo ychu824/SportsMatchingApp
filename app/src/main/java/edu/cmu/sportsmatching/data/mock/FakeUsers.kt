@@ -7,6 +7,7 @@ object FakeUsers {
     private val user2 = User("Mike M", "")
     private val user3 = User("Kyle K", "")
     private val user4 = User("David D", "")
+//    private val user5 = User("")
 
     val users = arrayListOf(user1, user2, user3, user4)
 }

@@ -7,9 +7,16 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="20dp"
     android:layout_marginVertical="@dimen/common_vertical_margin"
-    android:background="@drawable/border_background">
+    android:background="@drawable/background">
 
-
+    <TextView
+        android:id="@+id/next_match_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="5dp"
+        android:text="Rate your game and your teammates"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <LinearLayout
         android:layout_gravity="start"
