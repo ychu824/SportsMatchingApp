@@ -138,4 +138,6 @@ object FakeMatches {
             this.users.add(fakeUser)
         }
     }
+
+    var checked = false
 }

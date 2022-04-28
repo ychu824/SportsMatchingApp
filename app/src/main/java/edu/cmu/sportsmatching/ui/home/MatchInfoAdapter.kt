@@ -92,7 +92,7 @@ class MatchInfoAdapter(
         } else {
             holder.matchTitle.text = "Friend Request"
             holder.matchTitle.setTextColor(
-                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color)
+                ContextCompat.getColor(holder.matchTitle.context, R.color.black)
             )
         }
         // FIXME: real uri here

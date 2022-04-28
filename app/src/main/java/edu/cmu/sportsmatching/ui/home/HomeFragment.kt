@@ -17,6 +17,8 @@ import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.data.model.Type
 import edu.cmu.sportsmatching.data.model.User
 import edu.cmu.sportsmatching.databinding.FragmentHomeBinding
+import edu.cmu.sportsmatching.databinding.NextMatchInfoBinding
+import edu.cmu.sportsmatching.databinding.RateMatchInfoBinding
 import edu.cmu.sportsmatching.ui.login.LoginViewModel
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchFactory
 import edu.cmu.sportsmatching.ui.startmatch.ArchiveMatchViewModel
@@ -29,18 +31,17 @@ class HomeFragment(
     private val friendsViewModel: FriendsViewModel
 ) : Fragment(), MatchInfoAdapter.OnMatchListener,
     MatchInfoAdapter.ArchiveMatchesHandler,
-    MatchInfoAdapter.PendingMatchesHandler {
+    MatchInfoAdapter.PendingMatchesHandler,
+    NextMatchFragment.CheckInHandler {
 
     private lateinit var mMatchInfoRecyclerView: RecyclerView
     private lateinit var mMatchAdapter: MatchInfoAdapter
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var checkOutListener: OnCheckOutListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentHomeBinding.inflate(layoutInflater)
         mMatchInfoRecyclerView = binding.matchInfoRecyclerView
-
     }
 
     companion object {
@@ -56,21 +57,26 @@ class HomeFragment(
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        // FIXME: Replace some mock data with real data here
         this.mMatchAdapter =
             MatchInfoAdapter(this.pendingMatchViewModel.pendingMatches.value!!, this, this, this)
         mMatchInfoRecyclerView.layoutManager = layoutManager
         mMatchInfoRecyclerView.adapter = this.mMatchAdapter
 
-
         val fragmentManager: FragmentManager? = activity?.supportFragmentManager
         if (fragmentManager != null) {
-            checkOutListener = OnCheckOutListener(fragmentManager, pendingMatchViewModel, archiveMatchViewModel, friendsViewModel)
-            binding.nextMatch.checkIn.setOnClickListener {
-                checkOutListener.onChatClick()
+            val transaction = fragmentManager.beginTransaction()
+            transaction.setReorderingAllowed(true)
+            if (!FakeMatches.checked) {
+                transaction.replace(
+                    R.id.next_match, NextMatchFragment(this)
+                )
+            } else {
+                transaction.replace(
+                    R.id.next_match, RateMatchFragment()
+                )
             }
+            transaction.commit()
         }
-
         return binding.root
     }
 
@@ -92,9 +98,8 @@ class HomeFragment(
     override fun add(match: Match) {
         if (match.type == Type.MATCH_INVITATION) {
             this.archiveMatchViewModel.add(match) //size++
-        } else {
-            this.friendsViewModel.addFriend(User(match.starter, ""))
         }
+        this.friendsViewModel.addFriend(User(match.starter + "'s Group", ""))
     }
 
     override fun addPending(match: Match) {
@@ -110,5 +115,18 @@ class HomeFragment(
         this.mMatchAdapter.notifyItemRangeChanged(
             position, size
         )
+    }
+
+    override fun handleCheckIn() {
+        FakeMatches.checked = true
+        val fragmentManager: FragmentManager? = activity?.supportFragmentManager
+        if (fragmentManager != null) {
+            val transaction = fragmentManager.beginTransaction()
+            transaction.setReorderingAllowed(true)
+            transaction.replace(
+                R.id.next_match, RateMatchFragment()
+            )
+            transaction.commit()
+        }
     }
 }
