@@ -10,4 +10,5 @@
     <color name="accent_color">#58D68D</color>
     <color name="second_color">#58D68D</color>
     <color name="red">#CC2E29</color>
+    <color name="fragment_color">#C8FFE0</color>
 </resources>
