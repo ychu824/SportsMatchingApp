@@ -45,6 +45,36 @@
         </item>
     </style>
 
+    <style name="profile_small">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+
+    <style name="profile_medium">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+
+    <style name="profile_large">
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+
     <!-- styles.xml -->
     <style name="medium_text">
 
