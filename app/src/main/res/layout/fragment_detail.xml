@@ -4,7 +4,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:paddingTop="10dp"
-    android:background="@color/fragment_color"
+    android:background="@drawable/background"
         android:paddingBottom="56dp"
         android:layout_marginVertical="@dimen/common_vertical_margin">
 
