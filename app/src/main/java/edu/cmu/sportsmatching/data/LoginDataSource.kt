@@ -18,7 +18,7 @@ class LoginDataSource {
 
             val fakeUser = LoggedInUser(
                 java.util.UUID.randomUUID().toString(),
-                "Yucheng Hu")
+                "Doraemon")
             Result.Success(fakeUser)
         } catch (e: Throwable) {
             Result.Error(IOException("Error logging in", e))

@@ -4,7 +4,7 @@ import edu.cmu.sportsmatching.data.model.Match
 import edu.cmu.sportsmatching.data.model.User
 
 object FakeProfile {
-    val P_name = "Yizhou Liu"
+    val P_name = "Doraemon"
     val P_status = "M/25/student"
     val P_sports: List<String> = listOf("Jogging", "Basketball", "Tennis", "billiard", "swimming", "football", "league of legend")
     val P_timelist: List<Int> = listOf(300, 150, 50)
