@@ -63,6 +63,7 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
             } else if (location.text.toString().isEmpty()) {
                 Toast.makeText(activity, "Location cannot be empty!", Toast.LENGTH_SHORT).show()
             } else {
+                var imageUri = findImage(match.sport)
                 var curMatch: Match = Match(
                     title = postTitle.text.toString(),
                     mainText = mainText.text.toString(),
@@ -75,7 +76,7 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
                     date = match.date,
                     participants = listOf(),
                     totalTeam = match.currentTeam,
-                    imageUri = "https://cdn.vox-cdn.com/thumbor/l3P7vpY-Onaliz9OsgUz3y2mlh0=/0x0:4022x2681/920x613/filters:focal(1627x217:2269x859):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70624496/usa_today_17896947.0.jpg"
+                    imageUri = imageUri
                 )
 
                 archiveMatchViewModel.add(curMatch)
@@ -95,5 +96,25 @@ class StartMatchPostFragment(var archiveMatchViewModel: ArchiveMatchViewModel, v
 
         }
         return v
+    }
+
+    private fun findImage(sport: String?): Int {
+
+        if (sport == "Table Tennis") {
+            return R.drawable.table_tennis
+        } else if (sport == "Basketball") {
+            return R.drawable.basketball_on_court
+        } else if (sport == "Badminton") {
+            return R.drawable.badminton
+        } else if (sport == "Tennis") {
+            return R.drawable.tennis
+        } else if (sport == "Chess") {
+            return R.drawable.chess
+        } else if (sport == "Soccer") {
+            return R.drawable.soccer
+        } else {
+            return R.drawable.sports
+        }
+
     }
 }

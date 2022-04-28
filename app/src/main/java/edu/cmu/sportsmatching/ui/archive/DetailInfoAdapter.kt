@@ -54,11 +54,11 @@ class DetailInfoAdapter(
         holder.matchTitle.text = match.title
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
-        holder.matchPostImage.setImageResource(R.drawable.basketball_on_court)
         holder.matchLocation.text = "Location: " + match.location
         holder.matchSport.text = "Sport: " + match.sport
         holder.matchTeam.text = "Team: " + match.currentTeam + "/" + match.totalTeam
         holder.matchTime.text = "Time: " + match.startTime + " - " + match.endTime + " " + match.date
+        holder.matchPostImage.setImageResource(match.imageUri)
     }
 
     override fun getItemCount(): Int {

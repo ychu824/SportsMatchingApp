@@ -36,7 +36,7 @@ class DetailPageFragment(private val match: Match) : Fragment() {
         binding.detailInfoTime.text = "Time: ${match.startTime} - ${match.endTime} ${match.date}"
         binding.detailInfoSportType.text = "Sport: ${match.sport}"
         binding.detailInfoAvailability.text = "Team ${match.currentTeam}/${match.totalTeam}"
-
+        binding.detailFieldPic.setImageResource(match.imageUri)
 //
 //        val adapter = TeamMemberAdaptor(this.requireContext(), R.layout.team_member, users)
 //        listView = view?.findViewById<View>(R.id.list)

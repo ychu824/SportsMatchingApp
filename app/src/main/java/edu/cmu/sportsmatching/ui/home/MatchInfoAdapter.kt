@@ -87,15 +87,17 @@ class MatchInfoAdapter(
         if (match.type == Type.MATCH_INVITATION) {
             holder.matchTitle.text = match.title
             holder.matchTitle.setTextColor(
-                ContextCompat.getColor(holder.matchTitle.context, R.color.black))
+                ContextCompat.getColor(holder.matchTitle.context, R.color.black)
+            )
         } else {
             holder.matchTitle.text = "Friend Request"
             holder.matchTitle.setTextColor(
-                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color))
+                ContextCompat.getColor(holder.matchTitle.context, R.color.accent_color)
+            )
         }
         // FIXME: real uri here
 //        holder.matchPostImage.setImageURI(Uri.parse(match.imageUri))
-        holder.matchPostImage.setImageResource(R.drawable.basketball_on_court)
+        holder.matchPostImage.setImageResource(match.imageUri)
         holder.matchLocation.text = "Location: " + match.location
         holder.matchSport.text = "Sport: " + match.sport
         if (match.type == Type.MATCH_INVITATION) {
@@ -105,7 +107,8 @@ class MatchInfoAdapter(
             holder.matchTeam.height = 0;
             holder.matchTeam.isInvisible = true
         }
-        holder.matchTime.text = "Time: " + match.startTime + " - " + match.endTime + " " + match.date
+        holder.matchTime.text =
+            "Time: " + match.startTime + " - " + match.endTime + " " + match.date
     }
 
     override fun getItemCount(): Int {
