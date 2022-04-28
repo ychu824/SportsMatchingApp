@@ -30,6 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/startmatch_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
 
 
             <LinearLayout
+                android:layout_margin= "5dp"
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -92,6 +94,7 @@
                     android:gravity="center_vertical|center_horizontal"
                     android:hint="@string/_16_00"
                     android:inputType="text"
+                    android:text="@string/_16_00"
                     android:selectAllOnFocus="true"
                     tools:layout_editor_absoluteY="3dp" />
                 <View
@@ -125,6 +128,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
                     android:autofillHints="@string/_18_00"
+                    android:text="@string/_18_00"
                     android:background="@drawable/round_edit_text"
                     android:ellipsize="start"
                     android:gravity="center_vertical|center_horizontal"
@@ -147,6 +151,7 @@
             </LinearLayout>
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/startmatch_proficiency"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -173,6 +178,7 @@
             app:layout_constraintTop_toBottomOf="@id/startmatch_proficiency_dropdown" />
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/startmatch_sportsType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -202,6 +208,7 @@
             app:layout_constraintTop_toBottomOf="@id/startmatch_sportsType_dropdown" />
 
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/startmatch_numTeamMembers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -220,6 +227,7 @@
             android:layout_height="30dp"
             android:autofillHints="@string/five"
             android:hint="@string/five"
+            android:text="@string/five"
             android:background="@drawable/round_edit_text"
             android:inputType="text"
             android:gravity="center"
@@ -237,6 +245,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="#67BC5F"
             android:text="@string/continue_str"
+            android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/startmatch_et_numTeamMates" />

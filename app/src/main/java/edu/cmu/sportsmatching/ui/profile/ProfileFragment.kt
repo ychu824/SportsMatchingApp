@@ -60,6 +60,8 @@ class ProfileFragment : Fragment() {
         simpleSeekBar2.max = workourTime.toInt()
         simpleSeekBar2.progress = timeList[2]
 //        binding.StatusMessage.text = status_message
+        val rating = binding.ratingBar
+        rating.setRating(4.25F)
         binding.button2.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
