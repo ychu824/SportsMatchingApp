@@ -36,9 +36,8 @@ There're three main fragments on the home page, which are search bar, next match
 ### 2.3 Friends
 
 On the friends page, users can see their friends and match groups. By pressing into the chat button, they are able to chat with them easily.
-![friends](pics/friends.jpg)
 
-![chat](pics/chat.jpg)
+![chat](pics/friends_chat.jpg)
 
 ### 2.4 Start Match
 
