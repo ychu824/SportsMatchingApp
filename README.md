@@ -30,7 +30,7 @@ Users must enter their name, email, password and phone number in order to create
 
 ### 2.2 Home
 
-There're three main fragments on the home page, which are search bar, next match event prompt and match invitation or friend request list. Users are able to search relevant match information or friend requests in the search bar. The next match prompt reminds users to check for the next match. Users can easily interact with match invitation or friend request list by pressing the accept or dismiss button on a single item.
+There are three main fragments on the home page, which are search bar, next match event prompt and match invitation or friend request list. Users are able to search relevant match information or friend requests in the search bar. The next match prompt reminds users to check for the next match. Users can easily interact with match invitation or friend request list by pressing the accept or dismiss button on a single item.
 ![home](pics/home.jpg)
 
 ### 2.3 Friends
@@ -53,3 +53,29 @@ If users pressed the accept button of match invitation on the home page, those m
 
 On the profile page, users can view their basic information and sports status. For example, they can view how much time they devoted on a single sport.
 ![profile](pics/profile.jpg)
+
+## 3. Project Structure
+
+Here's the overall architecture of our project. 
+
+```
+app/
+├─ src/
+│  ├─ main/
+│  │  ├─ java/
+│  │  │  ├─ edu/cmu/sportsmatching/
+│  │  │  │  ├─ data/
+│  │  │  │  ├─ ui/
+│  │  │  │  │  ├─ archive/
+│  │  │  │  │  ├─ home/
+│  │  │  │  │  ├─ profile/
+│  │  │  │  │  ├─ signup/
+│  │  │  │  │  ├─ startmatch/
+│  │  │  │  │  ├─ login/
+│  │  │  │  ├─ LoginActivity.kt
+│  │  │  │  ├─ MainActivity.kt
+│  │  ├─ res/
+```
+
+## 3. Requirements
+- Android 9
